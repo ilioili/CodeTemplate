@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:id="@+id/tab"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_dir"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="#aaa"
+        android:gravity="center"
+        android:maxWidth="120dp"
+        android:text="RootDir" />
+
+    <ImageView
+        android:scaleType="centerInside"
+        android:layout_width="15dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/arrow_forward_black" />
+</LinearLayout>

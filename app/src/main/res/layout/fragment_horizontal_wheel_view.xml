@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"></android.support.v7.widget.RecyclerView>
+
+    <com.taihe.template.app.widget.HorizontalWheelView
+        android:id="@+id/horizontal_wheel_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:text="Wheel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Wheel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Wheel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Wheel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Wheel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Wheel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Wheel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Wheel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Wheel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.taihe.template.app.widget.HorizontalWheelView>
+
+    <com.taihe.template.app.widget.VerticalWheelView
+        android:id="@+id/vertical_wheel_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:text="Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.taihe.template.app.widget.VerticalWheelView>
+</LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.taihe.template.base.widget.SlideListItemWrapper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/layer_up"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#055"
+        android:gravity="center"
+        android:text="This is the first layer"
+        android:textColor="#fff"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/layer_down"
+        android:clickable="true"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:background="#505"
+        android:gravity="center"
+        android:text="删除"
+        android:textColor="#fff"
+        android:textSize="28sp" />
+
+
+</com.taihe.template.base.widget.SlideListItemWrapper>

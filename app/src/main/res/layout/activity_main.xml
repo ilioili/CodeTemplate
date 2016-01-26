@@ -1,0 +1,80 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.taihe.template.app.tmplate.activity.BottomTabActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        tools:background="#779955" />
+
+    <LinearLayout
+        android:id="@+id/tab_group"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        tools:background="#999">
+
+        <LinearLayout style="@style/TabBottom">
+
+            <ImageView
+                style="@style/TabBottomIcon"
+                android:src="@android:drawable/sym_def_app_icon" />
+
+            <TextView
+                style="@style/TabBottomText"
+                android:text="BannerTabViewPager" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/TabBottom">
+
+            <ImageView
+                style="@style/TabBottomIcon"
+                android:src="@android:drawable/sym_def_app_icon" />
+
+            <TextView
+                style="@style/TabBottomText"
+                android:text="ScrollTab" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/TabBottom">
+
+            <ImageView
+                style="@style/TabBottomIcon"
+                android:src="@android:drawable/sym_def_app_icon" />
+
+            <TextView
+                style="@style/TabBottomText"
+                android:text="ListPic" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/TabBottom">
+
+            <ImageView
+                style="@style/TabBottomIcon"
+                android:src="@android:drawable/sym_def_app_icon" />
+
+            <TextView
+                style="@style/TabBottomText"
+                android:text="GridPic" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/TabBottom">
+
+            <ImageView
+                style="@style/TabBottomIcon"
+                android:src="@android:drawable/sym_def_app_icon" />
+
+            <TextView
+                style="@style/TabBottomText"
+                android:text="Waterwa" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</merge>

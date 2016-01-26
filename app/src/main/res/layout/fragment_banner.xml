@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.taihe.template.base.widget.FixRatioFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:baseOnWidth="true"
+    app:ratio="0.5"
+    tools:background="#055">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/banner_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.taihe.template.base.widget.Indicator
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        app:drawable_default="@drawable/rect_indicator"
+        app:drawable_height="7dp"
+        app:drawable_selected="@drawable/rect_indicator_selected"
+        app:drawable_width="14dp"
+        app:interval="7dp" />
+
+</com.taihe.template.base.widget.FixRatioFrameLayout>

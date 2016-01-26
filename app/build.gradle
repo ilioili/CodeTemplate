@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+//    signingConfigs {
+//        config{
+//            storeFile file("X:/X/X")
+//            storePassword "XXXXXXXX"
+//            keyAlias "XXXX"
+//            keyPassword "XXXXXXXX"
+//        }
+//    }
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+        applicationId 'com.taihe.template.app'
+        manifestPlaceholders = [CHANNEL_NAME: "Office"]
+    }
+
+
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles 'proguard-rules.pro'
+//            signingConfig signingConfigs.config
+        }
+        debug {
+            defaultConfig.applicationId = defaultConfig.applicationId + ".debug"
+        }
+    }
+
+//    productFlavors {
+//        storeBaidu {
+//            manifestPlaceholders = [ CHANNEL_NAME:"baidu"]
+//        }
+//        storeGoole {
+//            manifestPlaceholders = [ CHANNEL_NAME:"google"]
+//        }
+//    }
+
+//    packagingOptions {
+//        exclude 'META-INF/NOTICE.txt'
+//        exclude 'META-INF/LICENSE.txt'
+//        exclude 'META-INF/LICENSE'
+//    }
+//    sourceSets {
+//        main {
+//            resources {
+//                srcDir 'src/main/java'
+//            }
+//        }
+//    }
+
+    //这是应用编译完成
+//    applicationVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            //开始输出
+//            print(buildTypes.toString())
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd")
+//            output.outputFile = new File(output.outputFile.getParentFile(), sdf.format(new Date()) + "-" + defaultConfig.versionName + "-" + defaultConfig.versionCode + "" + ".apk")
+//        }
+//    }
+
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':base')
+    compile 'com.squareup.picasso:picasso:2.5.2'
+}
