@@ -25,4 +25,8 @@
         <attr name="drawable_height" format="dimension" />
     </declare-styleable>
 
+    <declare-styleable name="MyGridLayout">
+        <attr name="colum" format="integer"/>
+    </declare-styleable>
+
 </resources>

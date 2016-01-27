@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
-import com.taihe.template.app.tmplate.fragment.RecyclerWheelViewFragment;
+import com.taihe.template.app.tmplate.fragment.GridLayoutFragment;
 import com.taihe.template.base.BaseActivity;
 
 /**
@@ -22,7 +22,7 @@ public class FragmentTestActivity extends BaseActivity {
         ScrollView scrollView = new ScrollView(this);
         LinearLayout linearLayout = new LinearLayout(this);
         scrollView.addView(linearLayout);
-        addFragment(linearLayout, new RecyclerWheelViewFragment());
+        addFragment(linearLayout, new GridLayoutFragment());
         setContentView(scrollView);
     }
 

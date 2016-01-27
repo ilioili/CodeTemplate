@@ -7,6 +7,16 @@ public class Student {
     private String objectId;
     private String name;
     private Integer age;
+    private String iconUrl;
+
+    public String getIconUrl() {
+        return iconUrl;
+    }
+
+    public void setIconUrl(String iconUrl) {
+        this.iconUrl = iconUrl;
+    }
+
     private int sex;
 
     public String getObjectId() {

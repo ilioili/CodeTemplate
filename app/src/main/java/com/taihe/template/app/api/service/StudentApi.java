@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/1/18.
  */
-public class StudentService {
+public class StudentApi {
     /**
      * 获取某个学生的详细信息
      *

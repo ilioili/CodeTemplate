@@ -36,6 +36,7 @@ public class RecyclerWheelView extends RecyclerView {
      * @param onItemSelectedListener
      */
     public void setAdapter(final int visiableItemCount, final Adapter adapter, final OnItemSelectedListener onItemSelectedListener) {
+        setHasFixedSize(true);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext()) {
             @Override
             public void measureChildWithMargins(View child, int widthUsed, int heightUsed) {

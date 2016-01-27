@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.ilioili.appstart.R;
 import com.taihe.template.app.api.model.Student;
-import com.taihe.template.app.api.service.StudentService;
+import com.taihe.template.app.api.service.StudentApi;
 import com.taihe.template.app.base.AppBaseActivity;
 import com.taihe.template.base.http.Error;
 import com.taihe.template.base.http.HttpCallback;
@@ -45,7 +45,7 @@ public class HttpActivity extends AppBaseActivity {
     private void reqGetTop10() {//无依赖关系的Task拼接队列,应用场景：进入页面前先加载数据，数据来自不同的接口
         showLoading();
         final ArrayList<Student> list = new ArrayList<>();
-        Task t1 = StudentService.getStudentDetailInfo("4LrCDDDH", new HttpCallback<Student>() {
+        Task t1 = StudentApi.getStudentDetailInfo("4LrCDDDH", new HttpCallback<Student>() {
             @Override
             public Object onSucceed(Student student) {
                 list.add(student);
@@ -58,7 +58,7 @@ public class HttpActivity extends AppBaseActivity {
                 dismissLoading();
             }
         });
-        Task t2 = StudentService.getStudentDetailInfo("e9KNAAAf", new HttpCallback<Student>() {
+        Task t2 = StudentApi.getStudentDetailInfo("e9KNAAAf", new HttpCallback<Student>() {
             @Override
             public Object onSucceed(Student student) {
                 list.add(student);
@@ -71,7 +71,7 @@ public class HttpActivity extends AppBaseActivity {
                 dismissLoading();
             }
         });
-        Task t3 = StudentService.getStudentDetailInfo("6GLjNNNf", new HttpCallback<Student>() {
+        Task t3 = StudentApi.getStudentDetailInfo("6GLjNNNf", new HttpCallback<Student>() {
             @Override
             public Object onSucceed(Student student) {
                 list.add(student);
@@ -91,7 +91,7 @@ public class HttpActivity extends AppBaseActivity {
 
     private void reqGetTopStudent() {
         showLoading();
-        Task task = StudentService.getTopStudentId(new HttpCallback<String>() {
+        Task task = StudentApi.getTopStudentId(new HttpCallback<String>() {
             @Override
             public Object onSucceed(String id) {
                 return id;
@@ -105,7 +105,7 @@ public class HttpActivity extends AppBaseActivity {
 
             @Override
             public Task getTask(String s) {
-                return StudentService.getStudentDetailInfo(s, new HttpCallback<Student>() {
+                Task studentDetailInfo = StudentApi.getStudentDetailInfo(s, new HttpCallback<Student>() {
                     @Override
                     public Object onSucceed(Student student) {
                         tvResult.setText(new Gson().toJson(student));
@@ -118,6 +118,7 @@ public class HttpActivity extends AppBaseActivity {
                         dismissLoading();
                     }
                 });
+                return studentDetailInfo;
             }
         });
         execute(task);
@@ -125,7 +126,7 @@ public class HttpActivity extends AppBaseActivity {
 
     private void reqGetData() {
         showLoading();
-        Task task = StudentService.getTop10StudentId(new HttpCallback<List<String>>() {
+        Task task = StudentApi.getTop10StudentId(new HttpCallback<List<String>>() {
             @Override
             public Object onSucceed(List<String> ids) {
                 tvResult.setText(new Gson().toJson(ids));

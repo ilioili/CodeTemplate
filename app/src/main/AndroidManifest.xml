@@ -67,6 +67,11 @@
             android:name="com.taihe.template.app.tmplate.activity.ActionBarLayoutActivity"
             android:label="@string/title_activity_action_bar_layout"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.taihe.template.app.mvp.MvpDemoActivity"
+            android:label="MVP模式DEMO"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.taihe.template.app.tmplate.activity.ContactListActivity"
             android:label="通讯录右侧字幕快速索引Demo" />

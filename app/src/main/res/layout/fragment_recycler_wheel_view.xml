@@ -25,9 +25,14 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"/>
 
-    <com.taihe.template.base.widget.RecyclerWheelView
+    <com.taihe.template.base.widget.CircularRecyclerWheelView
         android:layout_width="match_parent"
-        android:id="@+id/recyclerView5"
+        android:id="@+id/horizontalCircularRecyclerView"
         android:layout_height="50dp"/>
+
+    <com.taihe.template.base.widget.CircularRecyclerWheelView
+        android:layout_width="match_parent"
+        android:id="@+id/verticalCircularRecyclerView"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

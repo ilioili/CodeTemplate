@@ -1,5 +1,6 @@
 package com.taihe.template.app.tmplate.fragment;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import com.taihe.template.base.BaseFragment;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;
 import com.taihe.template.base.util.ToastUtil;
+import com.taihe.template.base.widget.CircularRecyclerWheelView;
 import com.taihe.template.base.widget.RecyclerWheelView;
 
 import java.util.ArrayList;
@@ -27,8 +29,10 @@ public class RecyclerWheelViewFragment extends BaseFragment {
     private RecyclerWheelView recyclerWheelView3;
     @Id(R.id.recyclerView4)
     private RecyclerWheelView recyclerWheelView4;
-    @Id(R.id.recyclerView5)
-    private RecyclerWheelView recyclerWheelView5;
+    @Id(R.id.horizontalCircularRecyclerView)
+    private CircularRecyclerWheelView circularRecycler;
+    @Id(R.id.verticalCircularRecyclerView)
+    private CircularRecyclerWheelView vertivalRecycler;
 
     @Override
     protected void initView(View rootView) {
@@ -59,7 +63,7 @@ public class RecyclerWheelViewFragment extends BaseFragment {
             @Override
             public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
                 Button button = (Button) holder.itemView;
-                button.setText("Tab"+position);
+                button.setText("Tab" + position);
             }
 
             @Override
@@ -67,16 +71,35 @@ public class RecyclerWheelViewFragment extends BaseFragment {
                 return list.size();
             }
         };
-        RecyclerWheelView.OnItemSelectedListener onItemSelectedListener =  new RecyclerWheelView.OnItemSelectedListener() {
+        RecyclerWheelView.OnItemSelectedListener onItemSelectedListener = new RecyclerWheelView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(int position, View view) {
                 ToastUtil.showShortToast(position);
             }
         };
-        recyclerWheelView1.setAdapter(2, adapter,onItemSelectedListener);
-        recyclerWheelView2.setAdapter(3, adapter,onItemSelectedListener);
-        recyclerWheelView3.setAdapter(4, adapter,onItemSelectedListener);
-        recyclerWheelView4.setAdapter(5, adapter,onItemSelectedListener);
-        recyclerWheelView5.setAdapter(6, adapter,onItemSelectedListener);
+        recyclerWheelView1.setAdapter(2, adapter, onItemSelectedListener);
+        recyclerWheelView2.setAdapter(3, adapter, onItemSelectedListener);
+        recyclerWheelView3.setAdapter(4, adapter, onItemSelectedListener);
+        recyclerWheelView4.setAdapter(5, adapter, onItemSelectedListener);
+        CircularRecyclerWheelView.OnScrollListener onItemSelectedListener1 = new CircularRecyclerWheelView.OnScrollListener() {
+            @Override
+            public void onScrollStop(int position, View view) {
+                ToastUtil.showShortToast("Position:" + ((Button) view).getText());
+            }
+
+            @Override
+            public void onScrolling(View view, float offset, float maxOffset) {
+                Button button = (Button) view;
+                float scale = 1 - Math.abs(offset / maxOffset * 0.5f);
+                button.setTextSize(15 * scale);
+                float colorScale = 1 - Math.abs(offset * 5 / maxOffset);
+                if (Math.abs(offset) > maxOffset / 5) colorScale = 0;
+                button.setTextColor(Color.rgb((int) (255 * colorScale), 0, 0));
+            }
+        };
+        circularRecycler.setAdapter(true, 5, adapter, onItemSelectedListener1);
+
+        vertivalRecycler.setAdapter(false, 5, adapter, onItemSelectedListener1);
+
     }
 }
