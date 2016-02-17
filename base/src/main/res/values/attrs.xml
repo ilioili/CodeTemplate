@@ -17,7 +17,7 @@
         <attr name="matchDrawableRatio" format="boolean" />
     </declare-styleable>
 
-    <declare-styleable name="RelativeContainer">
+    <declare-styleable name="FormLayout">
         <attr name="relative_width" format="float" />
         <attr name="relative_height" format="float" />
         <attr name="relative_left" format="float" />
@@ -34,8 +34,9 @@
         <attr name="drawable_height" format="dimension" />
     </declare-styleable>
 
-    <declare-styleable name="MyGridLayout">
-        <attr name="colum" format="integer" />
+    <declare-styleable name="SimpleGridLayout">
+        <attr name="grid_colum" format="integer" />
+        <attr name="grid_divider_width" format="dimension"/>
     </declare-styleable>
 
 </resources>

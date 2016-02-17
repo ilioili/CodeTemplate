@@ -67,7 +67,6 @@
             android:name="com.taihe.template.app.tmplate.activity.ActionBarLayoutActivity"
             android:label="@string/title_activity_action_bar_layout"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name="com.taihe.template.app.mvp.MvpDemoActivity"
             android:label="MVP模式DEMO"
@@ -86,8 +85,14 @@
             android:label="Fragment测试入口Activity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:label="滑轮控件Demo"
-            android:name="com.taihe.template.app.tmplate.activity.WheelViewActivity"></activity>
+            android:name="com.taihe.template.app.tmplate.activity.WheelViewActivity"
+            android:label="滑轮控件Demo" />
+        <activity
+            android:name="com.taihe.template.app.tmplate.activity.FromLayoutActivity"
+            android:label="效率布局Demo" />
+        <activity
+            android:name="com.taihe.template.app.tmplate.activity.SimpleGridLayoutActivity"
+            android:label="简单宫格布局Demo"></activity>
     </application>
 
 </manifest>

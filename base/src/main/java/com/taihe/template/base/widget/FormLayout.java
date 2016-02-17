@@ -12,29 +12,30 @@ import com.taihe.template.base.R;
 
 /**
  * Created by Administrator on 2016/2/16.
+ * 用于表格类展示的控件，或进行减少控件嵌套优化时使用
  */
-public class RelativeContainer extends ViewGroup {
+public class FormLayout extends ViewGroup {
     private boolean baseOnWidth;
     private float ratio;
 
-    public RelativeContainer(Context context) {
-        super(context);
+    public FormLayout(Context context) {
+        this(context, null);
     }
 
-    public RelativeContainer(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    public FormLayout(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
     }
 
-    public RelativeContainer(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FormLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RelativeContainer);
-        baseOnWidth = a.getBoolean(R.styleable.RelativeContainer_base_on_width, true);
-        ratio = a.getFloat(R.styleable.RelativeContainer_w_h_ratio, 0);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.FormLayout);
+        baseOnWidth = a.getBoolean(R.styleable.FormLayout_base_on_width, true);
+        ratio = a.getFloat(R.styleable.FormLayout_w_h_ratio, 0);
         a.recycle();
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public RelativeContainer(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public FormLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
@@ -46,9 +47,9 @@ public class RelativeContainer extends ViewGroup {
             LayoutParams layoutParams = (LayoutParams) child.getLayoutParams();
             int left = (int) (layoutParams.relativeLeft * unitLength);
             int top = (int) (layoutParams.relativeTop * unitLength);
-            int right = left + child.getWidth();
-            int bottom = top + child.getHeight();
-            child.layout(left, top, right, bottom);
+            int right = left + child.getMeasuredWidth();
+            int bottom = top + child.getMeasuredHeight();
+            child.layout(left + layoutParams.leftMargin, top + layoutParams.topMargin, right, bottom);
         }
     }
 
@@ -66,15 +67,15 @@ public class RelativeContainer extends ViewGroup {
             View child = getChildAt(i);
             LayoutParams layoutParams = (LayoutParams) child.getLayoutParams();
             int unitLength = baseOnWidth ? width : height;
-            int childWidthMeasureSpec = MeasureSpec.makeMeasureSpec((int) (unitLength * layoutParams.relativeWidth), MeasureSpec.EXACTLY);
-            int childHeightMeasureSpec = MeasureSpec.makeMeasureSpec((int) (unitLength * layoutParams.relativeHeight), MeasureSpec.EXACTLY);
+            int childWidthMeasureSpec = MeasureSpec.makeMeasureSpec((int) (unitLength * layoutParams.relativeWidth) - layoutParams.leftMargin - layoutParams.rightMargin, MeasureSpec.EXACTLY);
+            int childHeightMeasureSpec = MeasureSpec.makeMeasureSpec((int) (unitLength * layoutParams.relativeHeight) - layoutParams.topMargin - layoutParams.bottomMargin, MeasureSpec.EXACTLY);
             child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
         }
     }
 
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
-        return new RelativeContainer.LayoutParams(getContext(), attrs);
+        return new FormLayout.LayoutParams(getContext(), attrs);
     }
 
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
@@ -88,11 +89,11 @@ public class RelativeContainer extends ViewGroup {
          */
         public LayoutParams(Context c, AttributeSet attrs) {
             super(c, attrs);
-            TypedArray a = c.obtainStyledAttributes(attrs, R.styleable.RelativeContainer);
-            relativeWidth = a.getFloat(R.styleable.RelativeContainer_relative_width, 0);
-            relativeHeight = a.getFloat(R.styleable.RelativeContainer_relative_height, 0);
-            relativeLeft = a.getFloat(R.styleable.RelativeContainer_relative_left, 0);
-            relativeTop = a.getFloat(R.styleable.RelativeContainer_relative_top, 0);
+            TypedArray a = c.obtainStyledAttributes(attrs, R.styleable.FormLayout);
+            relativeWidth = a.getFloat(R.styleable.FormLayout_relative_width, 0);
+            relativeHeight = a.getFloat(R.styleable.FormLayout_relative_height, 0);
+            relativeLeft = a.getFloat(R.styleable.FormLayout_relative_left, 0);
+            relativeTop = a.getFloat(R.styleable.FormLayout_relative_top, 0);
             a.recycle();
         }
 
