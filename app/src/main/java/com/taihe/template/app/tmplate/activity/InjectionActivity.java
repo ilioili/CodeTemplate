@@ -16,12 +16,10 @@ import com.taihe.template.base.util.ToastUtil;
 
 @Layout(R.layout.activity_injection)
 public class InjectionActivity extends AppBaseActivity {
-
     @Id(R.id.tv_content)
     private TextView tvContent;
     @Id(R.id.iv_icon)
     private ImageView ivIcon;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +33,6 @@ public class InjectionActivity extends AppBaseActivity {
             }
         });
     }
-
     @Click({R.id.show_toast1, R.id.show_toast2})//支持多个控件的点击事件触发同一个方法（注意{R.id.set_text}中id需要大括号包裹）
     private void showToast(TextView v) {
         switch (v.getId()) {
@@ -47,17 +44,14 @@ public class InjectionActivity extends AppBaseActivity {
                 break;
         }
     }
-
     @Click({R.id.iv_icon})
     private void showHelloToast(ImageView iv) {
         ToastUtil.showShortToast("Hello guy ! I'm a ImageView");
     }
-
     @Click({R.id.set_text})//点击事件绑定（注意{R.id.set_text}中id需要大括号包裹）
     private void setText(View v) {
         tvContent.setText("Hello" + System.currentTimeMillis());
     }
-
     @Click({R.id.crash})
     private void execptionCauthtOutSide(View v) {
         Object o = null;

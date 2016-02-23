@@ -36,6 +36,7 @@
 
     <declare-styleable name="SimpleGridLayout">
         <attr name="grid_colum" format="integer" />
+        <attr name="grid_row_height" format="dimension" />
         <attr name="grid_divider_width" format="dimension"/>
     </declare-styleable>
 
