@@ -1,57 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#555"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.taihe.template.app.tmplate.activity.SimpleGridLayoutActivity">
+    android:layout_height="match_parent">
 
-    <com.taihe.template.base.widget.SimpleGridLayout
-        android:padding="5px"
-        app:grid_divider_width="5px"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:background="#f00"
-        app:grid_colum="3"
-        android:layout_height="wrap_content">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#0f0" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#0ff" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#ff0" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#5f8" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#9f3" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#af3" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#fff" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#850" />
+        android:layout_height="match_parent"
+        android:background="#555"
+        android:orientation="vertical"
+        tools:context="com.taihe.template.app.tmplate.activity.SimpleGridLayoutActivity">
 
 
+        <!--当grid_row_height对应的值转化为px后小于1的，则行高即为给单个Item的宽度乘以此值-->
+        <com.taihe.template.base.widget.SimpleGridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f00"
+            android:padding="5px"
+            app:grid_colum="3"
+            app:grid_divider_width="5px"
+            app:grid_row_height="0.66px">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#0f0" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#0ff" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#ff0" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#5f8" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#9f3" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#af3" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#fff" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#850" />
 
 
+        </com.taihe.template.base.widget.SimpleGridLayout>
 
-    </com.taihe.template.base.widget.SimpleGridLayout>
+        <!--当grid_row_height对应的值转化为px后等于1的或不指定该属性，则行高即为给单个Item的宽度-->
+        <com.taihe.template.base.widget.SimpleGridLayout
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f00"
+            android:padding="5px"
+            app:grid_colum="4"
+            app:grid_divider_width="5px">
 
-</FrameLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#0f0" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#0ff" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#ff0" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#5f8" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#9f3" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#af3" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#fff" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#850" />
+
+
+        </com.taihe.template.base.widget.SimpleGridLayout>
+
+        <!--当grid_row_height对应的值转化为px后等于1的或不指定该属性，则行高即为给单个Item的宽度-->
+        <com.taihe.template.base.widget.SimpleGridLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="#f00"
+            android:padding="5px"
+            app:grid_colum="3"
+            app:grid_divider_width="5px">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#0f0" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#0ff" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#ff0" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#5f8" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#9f3" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#af3" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#fff" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#850" />
+
+
+        </com.taihe.template.base.widget.SimpleGridLayout>
+
+        <!--当grid_row_height对应的值转化为px后大于1的，则行高即为给定的高度-->
+        <com.taihe.template.base.widget.SimpleGridLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="#f00"
+            android:padding="5px"
+            app:grid_colum="3"
+            app:grid_divider_width="5px"
+            app:grid_row_height="100dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#0f0" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#0ff" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#ff0" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#5f8" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#9f3" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#af3" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#fff" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#850" />
+
+
+        </com.taihe.template.base.widget.SimpleGridLayout>
+    </LinearLayout>
+</ScrollView>
+
