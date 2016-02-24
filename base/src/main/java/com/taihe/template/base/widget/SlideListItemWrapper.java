@@ -73,12 +73,19 @@ public class SlideListItemWrapper extends FrameLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        boolean b = dector.onTouchEvent(event);
-        if (!b && event.getAction() == MotionEvent.ACTION_UP) {
-            if (scrollX != 0 || scrollX != getChildAt(1).getMeasuredWidth()) {
-                int interval = scrollX < getChildAt(1).getMeasuredWidth() / 2 ? -scrollX : getChildAt(1).getMeasuredWidth() - scrollX;
-                scroller.startScroll(scrollX, 0, interval, 0, DURATION);
-                postInvalidate();
+        if (blockSlide) return false;
+        if (!dector.onTouchEvent(event)) {
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                if (scrollX != 0 || scrollX != getChildAt(1).getMeasuredWidth()) {
+                    int interval = scrollX < getChildAt(1).getMeasuredWidth() / 2 ? -scrollX : getChildAt(1).getMeasuredWidth() - scrollX;
+                    scroller.startScroll(scrollX, 0, interval, 0, DURATION);
+                    postInvalidate();
+                }
+            } else if (event.getAction() == MotionEvent.ACTION_CANCEL) {
+                if (scrollX != 0) {
+                    scroller.startScroll(scrollX, 0, -scrollX, 0, DURATION);
+                    postInvalidate();
+                }
             }
         }
         return true;
@@ -91,11 +98,11 @@ public class SlideListItemWrapper extends FrameLayout {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        if(isInEditMode()){
+        if (isInEditMode()) {
             getChildAt(0).layout(0, 0, getMeasuredWidth(), getMeasuredHeight());
             getChildAt(1).setAlpha(0.5f);//XML编辑模式下方便看到遮挡的View
-            getChildAt(1).layout(getMeasuredWidth()-getChildAt(1).getMeasuredWidth(), 0, getMeasuredWidth(), getMeasuredHeight());
-        }else{
+            getChildAt(1).layout(getMeasuredWidth() - getChildAt(1).getMeasuredWidth(), 0, getMeasuredWidth(), getMeasuredHeight());
+        } else {
             getChildAt(0).layout(0, 0, getMeasuredWidth(), getMeasuredHeight());
             getChildAt(1).layout(getMeasuredWidth(), 0, getChildAt(1).getMeasuredWidth() + getMeasuredWidth(), getMeasuredHeight());
         }
