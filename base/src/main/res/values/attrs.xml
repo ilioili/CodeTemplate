@@ -40,4 +40,12 @@
         <attr name="grid_divider_width" format="dimension"/>
     </declare-styleable>
 
+    <!--<declare-styleable name="SuperLayout">-->
+        <!--<attr name="colum_index" format="integer" />-->
+        <!--<attr name="row_index" format="integer" />-->
+        <!--<attr name="item_height" format="dimension"/>-->
+        <!--<attr name="item_width" format="dimension"/>-->
+    <!--</declare-styleable>-->
+
+
 </resources>

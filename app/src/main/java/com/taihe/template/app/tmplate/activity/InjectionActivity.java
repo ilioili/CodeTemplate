@@ -44,18 +44,19 @@ public class InjectionActivity extends AppBaseActivity {
                 break;
         }
     }
-    @Click({R.id.iv_icon})
+    @Click(R.id.iv_icon)
     private void showHelloToast(ImageView iv) {
         ToastUtil.showShortToast("Hello guy ! I'm a ImageView");
     }
-    @Click({R.id.set_text})//点击事件绑定（注意{R.id.set_text}中id需要大括号包裹）
+    @Click(R.id.set_text)//点击事件绑定（注意{R.id.set_text}中id需要大括号包裹）
     private void setText(View v) {
         tvContent.setText("Hello" + System.currentTimeMillis());
     }
-    @Click({R.id.crash})
+
+    @Click(R.id.crash)
     private void execptionCauthtOutSide(View v) {
+        ToastUtil.showShortToast("异常自动捕捉");
         Object o = null;
         o.toString();
-        ToastUtil.showShortToast("上一行代码崩溃抛异常，本行代码不会执行哦");
     }
 }
