@@ -1,6 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
@@ -9,6 +10,10 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowIsTranslucent">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+
         <!-- Note that we use the base animation style here (that is no
              animations) because we really have no idea how this kind of
              activity will be used. -->
