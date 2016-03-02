@@ -65,7 +65,7 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name="com.taihe.template.app.tmplate.activity.ActionBarLayoutActivity"
-            android:label="@string/title_activity_action_bar_layout"
+            android:label="滑动->固定顶部的Toobar的官方实现"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name="com.taihe.template.app.mvp.MvpDemoActivity"
@@ -96,7 +96,10 @@
         <activity
             android:name="com.taihe.template.app.canvas.CanvasActivity"
             android:label="画布实验室"/>
-        <activity android:name="com.taihe.template.app.effencytest.InjectionTestActivity">
+        <activity
+            android:theme="@style/Translucent"
+            android:label="MeterialDesign之圆形专场特效实现"
+            android:name="com.taihe.template.app.canvas.MeterialCircleActivity">
         </activity>
     </application>
 

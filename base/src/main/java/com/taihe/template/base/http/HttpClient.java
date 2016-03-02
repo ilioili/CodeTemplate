@@ -174,12 +174,7 @@ public class HttpClient {
                 case 1:
                     Type type = task.callback.getClass().getGenericInterfaces()[0];
                     type = ((ParameterizedType) type).getActualTypeArguments()[0];
-                    T t;
-                    if (type == String.class) {
-                        t = (T) dataWrapper.getBody();
-                    } else {
-                        t = gson.fromJson(gson.toJson(dataWrapper.getBody()), type);
-                    }
+                    T t = gson.fromJson(gson.toJson(dataWrapper.getBody()), type);
                     if (!task.isCanceled()) {
                         onSuccess(task, t);
                     }

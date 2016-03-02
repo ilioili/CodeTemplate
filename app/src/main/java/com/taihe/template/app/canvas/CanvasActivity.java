@@ -25,7 +25,7 @@ public class CanvasActivity extends AppBaseActivity {
         setContentView(viewPager);
         final List<Fragment> list = new ArrayList<>();
         list.add(new PathFragment());
-//        list.add(new PathFragment());
+        list.add(new CornerAnimationFragment());
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {

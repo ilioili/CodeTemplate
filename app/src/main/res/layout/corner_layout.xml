@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/expand_from_center"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="expand_from_center"/>
+
+            <Button
+                android:id="@+id/expand_from_left_top"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="expand_from_left_top"/>
+
+            <Button
+                android:id="@+id/expand_from_point_in_window"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="expand_from_point_in_window"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/collapse_to_center"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="collapse_to_center"/>
+
+            <Button
+                android:id="@+id/collapse_to_right_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="collapse_to_right_bottom"/>
+
+            <Button
+                android:id="@+id/collapse_to_point_in_window"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="collapse_to_point_in_window"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <com.taihe.template.app.widget.CircleAnimationFrame
+        android:id="@+id/corner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#f00"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#0ff"/>
+        </LinearLayout>
+
+
+    </com.taihe.template.app.widget.CircleAnimationFrame>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#f0f"/>
+</LinearLayout>

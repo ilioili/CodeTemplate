@@ -30,7 +30,7 @@ public class XmlCacheUtil {
 
     public synchronized void save(String key, Object obj) {
         if (null != obj) {
-            String jsonStr = new Gson().toJson(obj);
+            String jsonStr = obj instanceof String ? obj.toString() : new Gson().toJson(obj);
             sharedPreferences.edit().putString(key + obj.getClass().getName(), jsonStr).commit();
         }
     }
