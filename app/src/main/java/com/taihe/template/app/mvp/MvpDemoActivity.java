@@ -3,15 +3,11 @@ package com.taihe.template.app.mvp;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.ilioili.appstart.R;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 import com.taihe.template.app.base.AppBaseActivity;
 import com.taihe.template.app.mvp.model.StudentProfileModel;
 import com.taihe.template.app.mvp.presenter.StudentProfilePresenter;
@@ -58,24 +54,7 @@ public class MvpDemoActivity extends AppBaseActivity implements StudentProfilePr
                 fadeOut(tvSex);
             }
         }, 500);
-        Picasso.with(this).load(iconUrl).into(ivIcon, new Callback() {
-            @Override
-            public void onSuccess() {
-                AnimationSet animationSet = new AnimationSet(false);
-                AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
-                ScaleAnimation scaleAnimation = new ScaleAnimation(3, 1, 1, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_PARENT, 1);
-                animationSet.setDuration(1500);
-                animationSet.addAnimation(alphaAnimation);
-                animationSet.addAnimation(scaleAnimation);
-                animationSet.setFillAfter(true);
-                ivIcon.startAnimation(animationSet);
-            }
-
-            @Override
-            public void onError() {
-
-            }
-        });
+        Glide.with(this).load(iconUrl).into(ivIcon);
     }
 
     private void fadeOut(View v){

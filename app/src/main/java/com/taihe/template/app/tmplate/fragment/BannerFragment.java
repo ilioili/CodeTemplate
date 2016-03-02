@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.ilioili.appstart.R;
-import com.squareup.picasso.Picasso;
 import com.taihe.template.base.BaseFragment;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;
@@ -32,6 +32,7 @@ import static com.taihe.template.base.util.NullUtil.ept;
 @Layout(R.layout.fragment_banner)
 public class BannerFragment extends BaseFragment {
 
+    public static final int TAG_KEY = 3 << 24;
     private final long UPDATE_ITEM_INTERVAL = 3000;
     @Id(R.id.indicator)
     private Indicator indicator;
@@ -49,7 +50,7 @@ public class BannerFragment extends BaseFragment {
     private View.OnClickListener onPagerItemClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            String url = (String) v.getTag();
+            String url = (String) v.getTag(TAG_KEY);
             Toast.makeText(getContext(), url, Toast.LENGTH_SHORT).show();
         }
     };
@@ -135,9 +136,9 @@ public class BannerFragment extends BaseFragment {
                 view.setOnClickListener(onPagerItemClickListener);
             }
             String picUrl = (String) dataList.get(position % dataList.size());
-            Picasso.with(container.getContext()).load(picUrl).into((ImageView) view);
+            Glide.with(container.getContext()).load(picUrl).into((ImageView) view);
             container.addView(view);
-            view.setTag(picUrl);
+            view.setTag(TAG_KEY, picUrl);
             return view;
         }
 

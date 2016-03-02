@@ -74,5 +74,4 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':base')
-    compile 'com.squareup.picasso:picasso:2.5.2'
 }

@@ -9,9 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.taihe.template.app.base.AppBaseFragment;
 import com.ilioili.appstart.R;
-import com.squareup.picasso.Picasso;
 import com.taihe.template.base.util.TestPicUrls;
 import com.taihe.template.base.widget.FixRatioImageView;
 
@@ -40,9 +40,8 @@ public class PicGridFragment extends AppBaseFragment {
 
                 @Override
                 public void onBindViewHolder(Holder holder, int position) {
-                    Picasso.with(getContext())
+                    Glide.with(getContext())
                             .load(TestPicUrls.URLS[position])
-                            .resize(800, 600)
                             .placeholder(R.drawable.ic_launcher)
                             .error(R.drawable.ic_launcher)
                             .into(holder.imageView);
