@@ -18,6 +18,7 @@ import java.util.Random;
 
 @Layout(R.layout.activity_meterial_circle)
 public class MeterialCircleActivity extends AppBaseActivity {
+
     @Id(R.id.rootView)
     private CircleAnimationFrame circleAnimationFrame;
 
@@ -26,9 +27,10 @@ public class MeterialCircleActivity extends AppBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        applyCircleTransition = false;
         super.onCreate(savedInstanceState);
         randomActivityAppearance();
-        circleAnimationFrame.expand(getIntent().getIntExtra("x", 0), getIntent().getIntExtra("y", 0), 500);
+        circleAnimationFrame.expand(getIntent().getIntExtra("x", 0), getIntent().getIntExtra("y", 0), 1000);
         textView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -70,7 +72,7 @@ public class MeterialCircleActivity extends AppBaseActivity {
         }else{
             isFinishing = true;
         }
-        circleAnimationFrame.collpase(getIntent().getIntExtra("x", 0), getIntent().getIntExtra("y", 0), 500, new CircleAnimationFrame.CompleteListener() {
+        circleAnimationFrame.collpase(getIntent().getIntExtra("x", 0), getIntent().getIntExtra("y", 0), 1000, new CircleAnimationFrame.CompleteListener() {
             @Override
             public void onComplete() {
                 MeterialCircleActivity.super.finish();

@@ -8,7 +8,7 @@ import android.graphics.Path;
 import android.graphics.Region;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 
 /**
@@ -23,11 +23,15 @@ public class CircleAnimationFrame extends FrameLayout implements ValueAnimator.A
     private ValueAnimator valueAnimator;
     private CompleteListener listener;
 
+    public CircleAnimationFrame(Context context){
+        this(context, null);
+    }
+
     public CircleAnimationFrame(Context context, AttributeSet attrs) {
         super(context, attrs);
         path = new Path();
         valueAnimator = new ValueAnimator();
-        valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+        valueAnimator.setInterpolator(new DecelerateInterpolator(1f));
         valueAnimator.addUpdateListener(this);
         valueAnimator.addListener(new Animator.AnimatorListener() {
             @Override
@@ -131,7 +135,8 @@ public class CircleAnimationFrame extends FrameLayout implements ValueAnimator.A
     }
 
     public void expand(final int xInWindow, final int yInWindow, final int duration, CompleteListener listener) {
-        expand(xInWindow, yInWindow, duration, listener);
+        expand(xInWindow, yInWindow, duration);
+        this.listener = listener;
     }
 
     private void computCircleInfo(int xInWindow, int yInWindow) {

@@ -9,13 +9,13 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import com.taihe.template.app.base.AppBaseActivity;
 import com.taihe.template.app.tmplate.fragment.GridLayoutFragment;
-import com.taihe.template.base.BaseActivity;
 
 /**
  * Created by Administrator on 2016/1/25.
  */
-public class FragmentTestActivity extends BaseActivity {
+public class FragmentTestActivity extends AppBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

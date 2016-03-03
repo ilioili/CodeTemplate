@@ -1,9 +1,10 @@
 package com.taihe.template.app.tmplate.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SlideListItemActivity extends AppCompatActivity {
+import com.taihe.template.app.base.AppBaseActivity;
+
+public class SlideListItemActivity extends AppBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

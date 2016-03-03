@@ -5,7 +5,6 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +14,7 @@ import android.widget.TextView;
 
 import com.ilioili.appstart.BuildConfig;
 import com.ilioili.appstart.R;
+import com.taihe.template.app.base.AppBaseActivity;
 
 import java.util.ArrayList;
 
@@ -23,7 +23,7 @@ import static com.taihe.template.base.util.NullUtil.eqs;
 /**
  * Activity入口页面
  */
-public class EnterActivity extends AppCompatActivity {
+public class EnterActivity extends AppBaseActivity {
 
     private final View.OnClickListener onItemClickListener = new View.OnClickListener() {
         @Override
@@ -32,6 +32,7 @@ public class EnterActivity extends AppCompatActivity {
             try {
                 Intent it = new Intent(EnterActivity.this, EnterActivity.class.getClassLoader().loadClass(activityInfo.name));
                 startActivity(it);
+                overridePendingTransition(0, 0);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }

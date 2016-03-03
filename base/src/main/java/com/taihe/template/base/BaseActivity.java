@@ -271,7 +271,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void startActivity(Intent intent) {
         super.startActivity(intent);
-        overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+        overridePendingTransition(0, 0);
     }
 
     @Override

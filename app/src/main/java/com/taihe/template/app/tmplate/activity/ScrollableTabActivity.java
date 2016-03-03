@@ -1,11 +1,11 @@
 package com.taihe.template.app.tmplate.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
+import com.taihe.template.app.base.AppBaseActivity;
 import com.taihe.template.app.tmplate.fragment.ScrollableTabFragment;
 
-public class ScrollableTabActivity extends AppCompatActivity {
+public class ScrollableTabActivity extends AppBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

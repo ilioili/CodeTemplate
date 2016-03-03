@@ -97,7 +97,7 @@
             android:name="com.taihe.template.app.canvas.CanvasActivity"
             android:label="画布实验室"/>
         <activity
-            android:theme="@style/Translucent"
+            android:theme="@style/FullScreen"
             android:label="MeterialDesign之圆形专场特效实现"
             android:name="com.taihe.template.app.canvas.MeterialCircleActivity">
         </activity>
