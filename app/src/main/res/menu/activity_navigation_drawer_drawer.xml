@@ -4,32 +4,38 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:icon="@drawable/ic_account_balance_black_24dp"
+            android:title="主框架" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:icon="@drawable/ic_extension_black_24dp"
+            android:title="第三方库" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:icon="@drawable/ic_insert_emoticon_black_24dp"
+            android:title="画布涂鸦" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="共建和谐社会">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="分享APP" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_qq"
+                android:icon="@drawable/ic_person_add_black_24dp"
+                android:title="联系作者" />
+
+            <item
+                android:id="@+id/nav_qq_group"
+                android:icon="@drawable/ic_group_add_black_24dp"
+                android:title="加入群聊" />
+
+            <item
+                android:id="@+id/nav_alipay"
+                android:icon="@drawable/ic_favorite_black_24dp"
+                android:title="支付宝打赏" />
         </menu>
     </item>
 

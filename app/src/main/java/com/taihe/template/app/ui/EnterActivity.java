@@ -48,7 +48,6 @@ public class EnterActivity extends AppBaseActivity {
         RecyclerView recyclerView = new RecyclerView(this);
         setContentView(recyclerView);
 
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(new RecyclerView.Adapter<Holder>() {

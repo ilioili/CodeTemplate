@@ -25,19 +25,23 @@
         <activity
             android:name="com.taihe.template.app.ui.EnterActivity"
             android:label="@string/title_activity_main_list">
+
+        </activity>
+        <activity
+            android:name="com.taihe.template.app.tmplate.activity.BottomTabActivity"
+            android:label="@string/title_activity_main">
+
+        </activity>
+        <activity
+            android:name="com.taihe.template.app.tmplate.activity.NavigationDrawerActivity"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.taihe.template.app.tmplate.activity.BottomTabActivity"
-            android:label="@string/title_activity_main"/>
-        <activity
-            android:name="com.taihe.template.app.tmplate.activity.NavigationDrawerActivity"
-            android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name="com.taihe.template.app.ui.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

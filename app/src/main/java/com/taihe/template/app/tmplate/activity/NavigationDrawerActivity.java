@@ -1,5 +1,7 @@
 package com.taihe.template.app.tmplate.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -14,8 +16,10 @@ import android.view.View;
 
 import com.ilioili.appstart.R;
 import com.taihe.template.app.base.AppBaseActivity;
+import com.taihe.template.app.ui.EnterActivity;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;
+import com.taihe.template.base.util.ToastUtil;
 
 @Layout(R.layout.activity_navigation_drawer)
 public class NavigationDrawerActivity extends AppBaseActivity
@@ -85,19 +89,37 @@ public class NavigationDrawerActivity extends AppBaseActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
+            startActivity(new Intent(this, EnterActivity.class));
         } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_alipay) {
+            try {
+                Uri uri = Uri.parse("alipayqr://platformapi/startapp?saId=10000007&qrcode=https://qr.alipay.com/apn5aqr0qhfzu5y862");
+                startActivity(new Intent(Intent.ACTION_VIEW, uri));
+            } catch (Exception e) {
+                ToastUtil.showShortToast("支付宝都没安装？");
+            }
+        } else if (id == R.id.nav_qq) {
+            try {
+                String url = "mqqwpa://im/chat?chat_type=wpa&uin=136351754";
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+            } catch (Exception e) {
+                ToastUtil.showShortToast("QQ都没安装？");
+            }
+        } else if (id == R.id.nav_qq_group) {
+            try {
+//            String url="mqqwpa://im/chat?chat_type=internal&uin=284821731";
+                String url = "mqqapi://card/show_pslcard?src_type=internal&uin=284821731&card_type=group";
+//            String url="mqqwpa://im/chat?chat_type=crm&uin=284821731";//企业客服号
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+            } catch (Exception e) {
+                ToastUtil.showShortToast("QQ都没安装？");
+            }
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;

@@ -19,12 +19,6 @@
             android:background="?attr/colorPrimary"
             android:gravity="center"
             app:popupTheme="@style/AppTheme.PopupOverlay">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="#055"
-                android:text="Title"
-                android:gravity="center"/>
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
