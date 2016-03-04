@@ -24,6 +24,7 @@ public class FormLineView extends View {
     private int height;
     private int interval;
     private Paint paint;
+    private Paint dashPaint;
     private Path path;
     private String titles[] = new String[]{"1月", "2月", "3月", "4月", "5月", "6月", "7月", "9月", "10月", "11月", "12月","1月", "2月", "3月", "4月", "5月", "6月", "7月", "9月", "10月", "11月", "12月"};
     private int[] data = new int[]{0, 100, 300, 200, 500, 0,50, 800, 500, 200, 400, 100,0, 100, 300, 200, 500, 0,50, 800, 500, 200, 400, 100};
@@ -87,11 +88,15 @@ public class FormLineView extends View {
         paint.setTextSize(dp2px(Config.TEXT_SIZE));
         paint.setTextAlign(Paint.Align.CENTER);
         path = new Path();
+        dashPaint = new Paint();
+        PathEffect effects = new DashPathEffect(new float[]{5,5,5,5},1);
+        dashPaint.setPathEffect(effects);
         scroller = new Scroller(context, new DecelerateInterpolator());
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
+        canvas.clipRect(getScrollX(), 0, getScrollX()+width, height);
         drawTitles(canvas);//绘制底部标签
         drawPathShade(canvas);//绘制曲线围成的区域
         drawPoint(canvas);//绘制所有的数据点
@@ -100,11 +105,8 @@ public class FormLineView extends View {
     }
 
     private void drawCenterLine(Canvas canvas) {
-        PathEffect effects = new DashPathEffect(new float[]{5,5,5,5},1);
-        paint.setPathEffect(effects);
         int yPos = (height-dp2px(Config.BOTTOM_TITLE_SPACE+Config.TOP_DATA_TEXT_SPACE))/2+Config.TOP_DATA_TEXT_SPACE;
-        canvas.drawLine(0, yPos, interval*data.length, yPos, paint);
-        paint.setPathEffect(null);
+        canvas.drawLine(-width/2, yPos, interval*data.length+width/2, yPos, dashPaint);
     }
 
     @Override
