@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
 
+import com.taihe.template.base.util.LogUtil;
+
 /**
  * Created by Administrator on 2016/3/4.
  */
@@ -23,32 +25,48 @@ public class FormLineView extends View {
     private int width;
     private int height;
     private int interval;
+    private boolean isFingerUp;
     private Paint paint;
     private Paint dashPaint;
     private Path path;
-    private String titles[] = new String[]{"1月", "2月", "3月", "4月", "5月", "6月", "7月", "9月", "10月", "11月", "12月","1月", "2月", "3月", "4月", "5月", "6月", "7月", "9月", "10月", "11月", "12月"};
-    private int[] data = new int[]{0, 100, 300, 200, 500, 0,50, 800, 500, 200, 400, 100,0, 100, 300, 200, 500, 0,50, 800, 500, 200, 400, 100};
+    //    private String titles[] = new String[]{"1月", "2月", "3月", "4月"};
+//    private int[] data = new int[]{0, 0, 300,0};
+    private String titles[] = new String[]{"1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"};
+    private float[] data = new float[]{0, 100, 300.55f, 200, 500.7f, 0, 50, 800, 500, 200, 400, 100, 0, 100, 300, 200, 500, 0, 50, 800, 500, 200, 400, 100};
     private int[] tops;
 
+    private int lastSelectIndex = -1;
     private Scroller scroller;
     private GestureDetector gestureDetector;
-    private GestureDetector.SimpleOnGestureListener gestureListener = new GestureDetector.SimpleOnGestureListener(){
+    private OnActionListener actionListener;
+    private GestureDetector.SimpleOnGestureListener gestureListener = new GestureDetector.SimpleOnGestureListener() {
         @Override
         public boolean onSingleTapUp(MotionEvent e) {
-            return super.onSingleTapUp(e);
+            int index = (int) ((e.getX() + getScrollX() + interval / 2) / interval);
+            if (index < 0) {
+                index = 0;
+            } else if (index > data.length) {
+                index = data.length - 1;
+            }
+            if (null != actionListener) {
+                actionListener.onItemClick(index);
+            }
+            scrollToIndex(index);
+            return true;
         }
 
         @Override
         public boolean onDown(MotionEvent e) {
+            isFingerUp = false;
             return true;
         }
 
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
             scrollBy((int) distanceX, 0);
-            if(getScrollX()<leftScrollBoder){
+            if (getScrollX() < leftScrollBoder) {
                 scrollTo(leftScrollBoder, 0);
-            }else if(getScrollX()>rightScrollBoder){
+            } else if (getScrollX() > rightScrollBoder) {
                 scrollTo(rightScrollBoder, 0);
             }
             return true;
@@ -61,22 +79,11 @@ public class FormLineView extends View {
             return true;
         }
     };
+    private int firstVisiableIndex;
+    private int lastVisiableIndex;
 
     public FormLineView(Context context) {
         this(context, null);
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        boolean handled = gestureDetector.onTouchEvent(event);
-        if(!handled && event.getAction()==MotionEvent.ACTION_UP){
-            moveToIdlePosition();
-        }
-        return true;
-    }
-
-    private void moveToIdlePosition() {
-        //TODO 滑动到合适的位置
     }
 
     public FormLineView(Context context, AttributeSet attrs) {
@@ -89,14 +96,48 @@ public class FormLineView extends View {
         paint.setTextAlign(Paint.Align.CENTER);
         path = new Path();
         dashPaint = new Paint();
-        PathEffect effects = new DashPathEffect(new float[]{5,5,5,5},1);
+        dashPaint.setStyle(Paint.Style.STROKE);
+        dashPaint.setColor(Color.BLACK);
+        int dash = dp2px(5);
+        PathEffect effects = new DashPathEffect(new float[]{dash, dash, dash, dash}, 1);
         dashPaint.setPathEffect(effects);
         scroller = new Scroller(context, new DecelerateInterpolator());
     }
 
+    private void scrollToIndex(int index) {
+        scroller.startScroll(getScrollX(), 0, interval * (index - Config.FIX_COLUMN / 2) - getScrollX(), 0, 250);
+        postInvalidate();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        boolean handled = gestureDetector.onTouchEvent(event);
+        if (event.getAction() == MotionEvent.ACTION_UP) {
+            isFingerUp = true;
+            if (!handled)
+                updateSelectedIndex();
+        }
+        return true;
+    }
+
+    private void updateSelectedIndex() {
+        if (isFingerUp) {
+            int nowSelectedIndex = getSelectedIndex();
+            if (lastSelectIndex == -1) {
+                lastSelectIndex = nowSelectedIndex;
+            } else if (lastSelectIndex != nowSelectedIndex) {
+                lastSelectIndex = nowSelectedIndex;
+                if (null != actionListener) {
+                    actionListener.onItemSelected(lastSelectIndex);
+                }
+            }
+        }
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.clipRect(getScrollX(), 0, getScrollX()+width, height);
+        computeVisiableIndex();
+        canvas.clipRect(getScrollX(), 0, getScrollX() + width, height);
         drawTitles(canvas);//绘制底部标签
         drawPathShade(canvas);//绘制曲线围成的区域
         drawPoint(canvas);//绘制所有的数据点
@@ -105,66 +146,82 @@ public class FormLineView extends View {
     }
 
     private void drawCenterLine(Canvas canvas) {
-        int yPos = (height-dp2px(Config.BOTTOM_TITLE_SPACE+Config.TOP_DATA_TEXT_SPACE))/2+Config.TOP_DATA_TEXT_SPACE;
-        canvas.drawLine(-width/2, yPos, interval*data.length+width/2, yPos, dashPaint);
+        int yPos = (height - dp2px(Config.BOTTOM_TITLE_SPACE + Config.TOP_DATA_TEXT_SPACE)) / 2 + Config.TOP_DATA_TEXT_SPACE;
+        path.reset();
+        path.moveTo(-width / 2, yPos);
+        path.lineTo(interval * data.length + width / 2, yPos);
+        canvas.drawPath(path, dashPaint);
     }
 
     @Override
     public void computeScroll() {
-        if(scroller.computeScrollOffset()){
+        if (scroller.computeScrollOffset()) {
             scrollTo(scroller.getCurrX(), 0);
+        } else {
+            updateSelectedIndex();
         }
     }
 
-    private int getCenterIndex(){//TODO
+    private int getCenterIndex() {//TODO
         return 0;
     }
 
     private void drawSelectData(Canvas canvas) {
-        int index = (width/2+getScrollX()+interval/2)/interval;
+        int index = getSelectedIndex();
         int xPos = index * interval;
-        canvas.drawLine(xPos,height-dp2px(Config.BOTTOM_TITLE_SPACE), xPos,tops[index], paint);
+        canvas.drawLine(xPos, height - dp2px(Config.BOTTOM_TITLE_SPACE), xPos, tops[index], paint);
         paint.setColor(Color.WHITE);
-        canvas.drawCircle(xPos, tops[index], dp2px(Config.DOT_RADIUS)*4, paint);
-        paint.setColor(Color.BLACK);
+        canvas.drawCircle(xPos, tops[index], dp2px(Config.DOT_RADIUS) * 2, paint);
+        paint.setColor(Config.DOT_COLOR);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(3);
-        canvas.drawCircle(xPos, tops[index], dp2px(Config.DOT_RADIUS)*3, paint);
-
-        paint.setColor(Config.DOT_COLOR);
+        canvas.drawCircle(xPos, tops[index], dp2px(Config.DOT_RADIUS) * 2, paint);
         paint.setStyle(Paint.Style.FILL);
         canvas.drawCircle(index * interval, tops[index], dp2px(Config.DOT_RADIUS), paint);
+        canvas.drawText(data[index] + "", xPos, tops[index] - dp2px(Config.TOP_DATA_TEXT_SPACE) / 3, paint);
+    }
+
+    private int getSelectedIndex() {
+        int index = (width / 2 + getScrollX() + interval / 2) / interval;
+        if (index > data.length - 1) {
+            index = data.length - 1;
+            LogUtil.e("Index:" + index + "");
+        }
+        return index;
     }
 
     private void drawPoint(Canvas canvas) {
         paint.setColor(Config.DOT_COLOR);
         paint.setStyle(Paint.Style.FILL);
-        for (int i = 0; i < data.length; i++) {
-            canvas.drawCircle(i * interval, tops[i], dp2px(Config.DOT_RADIUS), paint);
-            if (i + 1 < data.length)
-                canvas.drawLine(i * interval, tops[i], (i + 1) * interval, tops[i + 1], paint);
+        for (int i = firstVisiableIndex; i < lastVisiableIndex; i++) {
+            int startX = i * interval;
+            canvas.drawLine(startX, height - dp2px(Config.BOTTOM_TITLE_SPACE), startX, tops[i], dashPaint);
+            if (i + 1 < lastVisiableIndex)
+                canvas.drawLine(startX, tops[i], (i + 1) * interval, tops[i + 1], paint);
+            else
+                canvas.drawLine(startX, tops[i], startX, height - dp2px(Config.BOTTOM_TITLE_SPACE), paint);
+            canvas.drawCircle(startX, tops[i], dp2px(Config.DOT_RADIUS), paint);
         }
     }
 
     private void drawPathShade(Canvas canvas) {
         paint.setStyle(Paint.Style.FILL);
         path.reset();
-        path.moveTo(0, height - dp2px(Config.BOTTOM_TITLE_SPACE));
-
-        for (int i = 0; i < data.length; i++) {
+        path.moveTo(firstVisiableIndex * interval, height - dp2px(Config.BOTTOM_TITLE_SPACE));
+        for (int i = firstVisiableIndex; i < lastVisiableIndex; i++) {
             path.lineTo(i * interval, tops[i]);
         }
-        path.lineTo(data.length*interval-interval, height-dp2px(Config.BOTTOM_TITLE_SPACE));
+        path.lineTo(lastVisiableIndex * interval - interval, height - dp2px(Config.BOTTOM_TITLE_SPACE));
         paint.setColor(Config.SHADE_COLOR);
         canvas.drawPath(path, paint);
     }
 
     private void computeTopPosition() {
-        int max = getMax(data);
+        float max = getMax(data);
         tops = new int[data.length];
         int maxHeight = height - dp2px(Config.TOP_DATA_TEXT_SPACE + Config.BOTTOM_TITLE_SPACE);
         for (int i = 0; i < tops.length; i++) {
-            tops[i] = height - maxHeight * data[i] / max - dp2px(Config.BOTTOM_TITLE_SPACE);
+            tops[i] = (int) (height - maxHeight * data[i] / max - dp2px(Config.BOTTOM_TITLE_SPACE));
         }
     }
 
@@ -172,28 +229,43 @@ public class FormLineView extends View {
         return (int) (size * getResources().getDisplayMetrics().density);
     }
 
-
-    private int getMax(int[] nums) {
-        int max = nums[0];
-        for (int n : nums) {
+    private float getMax(float[] nums) {
+        float max = nums[0];
+        for (float n : nums) {
             max = max > n ? max : n;
         }
         return max;
     }
 
-
     private void drawTitles(Canvas canvas) {
-        paint.setColor(Config.TEXT_COLOR);
-        for (int i = 0; i < titles.length; i++) {
+        paint.setColor(Color.BLACK);
+        for (int i = firstVisiableIndex; i < lastVisiableIndex; i++) {
             canvas.drawText(titles[i], i * interval, height - Config.BOTTOM_TITLE_SPACE / 2, paint);
         }
+        int index = getSelectedIndex();
+        paint.setColor(Config.TEXT_COLOR);
+        canvas.drawText(titles[index], index * interval, height - Config.BOTTOM_TITLE_SPACE / 2, paint);
     }
 
-    public void setData(String[] titles, int[] data) {
+    private void computeVisiableIndex() {
+        firstVisiableIndex = getScrollX() / interval;
+        firstVisiableIndex = firstVisiableIndex < 0 ? 0 : firstVisiableIndex;
+        lastVisiableIndex = firstVisiableIndex + Config.FIX_COLUMN + 2;
+        lastVisiableIndex = lastVisiableIndex > titles.length ? titles.length : lastVisiableIndex;
+    }
+
+    public void setData(String[] titles, final float[] data) {
         this.titles = titles;
         this.data = data;
-        leftScrollBoder = -width/2;
-        rightScrollBoder = (data.length-1)*interval-width/2;
+        leftScrollBoder = -width / 2;
+        rightScrollBoder = (data.length - 1) * interval - width / 2;
+        post(new Runnable() {
+            @Override
+            public void run() {
+                scrollToIndex(data.length - 1);
+            }
+        });
+
     }
 
     @Override
@@ -201,35 +273,36 @@ public class FormLineView extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
-
-
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         width = w;
         height = h;
         interval = width / Config.FIX_COLUMN;
-        leftScrollBoder = -width/2;
-        rightScrollBoder = interval*(data.length-1)-width/2;
+        leftScrollBoder = -width / 2;
+        rightScrollBoder = interval * (data.length - 1) - width / 2;
         computeTopPosition();
     }
 
+    public void setActionListener(OnActionListener clickListener) {
+        this.actionListener = clickListener;
+    }
+
+    public interface OnActionListener {
+        void onItemClick(int index);
+
+        void onItemSelected(int index);
+    }
+
     static class Config {
-        public static final int TEXT_COLOR = Color.parseColor("#005555");
+        public static final int TEXT_COLOR = Color.parseColor("#0086D1");
         public static final int TEXT_SIZE = 15;
         public static final int BOTTOM_TITLE_SPACE = 30;
         public static final int TOP_DATA_TEXT_SPACE = 30;
-        public static final int SHADE_COLOR = Color.parseColor("#22005555");
+        public static final int SHADE_COLOR = Color.parseColor("#220086D1");
         public static final int DOT_COLOR = TEXT_COLOR;
-        public static final int DOT_RADIUS = 2;
+        public static final int DOT_RADIUS = 3;
         public static final int FIX_COLUMN = 6;
-    }
-    public void setOnItemClickListener(OnItemClickListener clickListener){
-        this.clickListener = clickListener;
-    }
-    private OnItemClickListener clickListener;
-    public interface OnItemClickListener {
-        void onItemClick(int index);
     }
 
 }
