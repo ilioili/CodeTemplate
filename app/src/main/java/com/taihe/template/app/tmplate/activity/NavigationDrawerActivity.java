@@ -1,5 +1,6 @@
 package com.taihe.template.app.tmplate.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -33,6 +34,34 @@ public class NavigationDrawerActivity extends AppBaseActivity
     private DrawerLayout drawer;
     @Id(R.id.nav_view)
     private NavigationView navigationView;
+
+    public enum Action{
+        EXIT_APP, EXIT_TO_TOP;
+    }
+
+    public static Intent newIntent(Context conext,Action action){
+        Intent it = new Intent(conext, NavigationDrawerActivity.class);
+        it.setAction(action.toString());
+        switch (action){
+            case EXIT_APP:
+                it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                break;
+            case EXIT_TO_TOP:
+                it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                break;
+        }
+        return it;
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        setIntent(intent);
+        if(Action.EXIT_APP.toString().equals(intent.getAction())){
+            finish();
+        }else if(Action.EXIT_TO_TOP.toString().equals(intent.getAction())){
+
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

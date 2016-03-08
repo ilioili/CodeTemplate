@@ -25,16 +25,15 @@
         <activity
             android:name="com.taihe.template.app.ui.EnterActivity"
             android:label="@string/title_activity_main_list">
-
         </activity>
         <activity
             android:name="com.taihe.template.app.tmplate.activity.BottomTabActivity"
             android:label="@string/title_activity_main">
-
         </activity>
         <activity
             android:name="com.taihe.template.app.tmplate.activity.NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -101,9 +100,14 @@
             android:name="com.taihe.template.app.canvas.CanvasActivity"
             android:label="画布实验室"/>
         <activity
-            android:theme="@style/FullScreen"
+            android:name="com.taihe.template.app.canvas.MeterialCircleActivity"
             android:label="MeterialDesign之圆形专场特效实现"
-            android:name="com.taihe.template.app.canvas.MeterialCircleActivity">
+            android:theme="@style/FullScreen">
+        </activity>
+        <activity
+            android:name="com.taihe.template.app.ShowFinishAppActivity"
+            android:label="@string/title_activity_show_finish_app"
+            android:theme="@style/AppTheme">
         </activity>
     </application>
 

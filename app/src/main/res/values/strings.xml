@@ -26,5 +26,6 @@
     <string name="title_activity_">注解框架DEMO</string>
     <string name="title_activity_action_bar_layout">ActionBarLayoutActivity</string>
     <string name="title_activity_toolbar">ToolbarActivity</string>
+    <string name="title_activity_show_finish_app">ShowFinishAppActivity</string>
 
 </resources>

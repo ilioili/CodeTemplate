@@ -1,7 +1,10 @@
 package com.taihe.template.app.base;
 
+import android.content.Context;
+
 import com.taihe.template.app.common.loading.CommonLoading;
 import com.taihe.template.app.common.loading.CommonLoadingFactory;
+import com.taihe.template.app.tmplate.activity.NavigationDrawerActivity;
 
 /**
  * Created by Administrator on 2016/1/9.
@@ -29,5 +32,9 @@ public class AppBaseActivity extends CircleTransitionActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void exitApp(Context context){
+        startActivity(NavigationDrawerActivity.newIntent(context, NavigationDrawerActivity.Action.EXIT_APP));
     }
 }
