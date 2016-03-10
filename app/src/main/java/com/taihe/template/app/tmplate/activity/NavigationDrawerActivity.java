@@ -4,20 +4,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.ilioili.appstart.R;
+import com.taihe.template.app.ui.CanvasDemoListFragment;
+import com.taihe.template.app.FrameListFragment;
+import com.taihe.template.app.ui.PlayGroundFragment;
+import com.taihe.template.app.ui.ThirdPartLearnFragment;
 import com.taihe.template.app.base.AppBaseActivity;
-import com.taihe.template.app.ui.EnterActivity;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;
 import com.taihe.template.base.util.ToastUtil;
@@ -28,21 +29,21 @@ public class NavigationDrawerActivity extends AppBaseActivity
 
     @Id(R.id.toolbar)
     private Toolbar toolbar;
-    @Id(R.id.fab)
-    private FloatingActionButton fab;
     @Id(R.id.drawer_layout)
     private DrawerLayout drawer;
     @Id(R.id.nav_view)
     private NavigationView navigationView;
 
-    public enum Action{
-        EXIT_APP, EXIT_TO_TOP;
-    }
+    private Fragment curFragment;
+    private FrameListFragment frameListFragment = new FrameListFragment();
+    private CanvasDemoListFragment canvasDemoListFragment = new CanvasDemoListFragment();
+    private ThirdPartLearnFragment thirdPartLearnFragment = new ThirdPartLearnFragment();
+    private PlayGroundFragment playGroundFragment = new PlayGroundFragment();
 
-    public static Intent newIntent(Context conext,Action action){
+    public static Intent newIntent(Context conext, Action action) {
         Intent it = new Intent(conext, NavigationDrawerActivity.class);
         it.setAction(action.toString());
-        switch (action){
+        switch (action) {
             case EXIT_APP:
                 it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 break;
@@ -56,9 +57,9 @@ public class NavigationDrawerActivity extends AppBaseActivity
     @Override
     protected void onNewIntent(Intent intent) {
         setIntent(intent);
-        if(Action.EXIT_APP.toString().equals(intent.getAction())){
+        if (Action.EXIT_APP.toString().equals(intent.getAction())) {
             finish();
-        }else if(Action.EXIT_TO_TOP.toString().equals(intent.getAction())){
+        } else if (Action.EXIT_TO_TOP.toString().equals(intent.getAction())) {
 
         }
     }
@@ -67,18 +68,11 @@ public class NavigationDrawerActivity extends AppBaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setSupportActionBar(toolbar);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, frameListFragment, FrameListFragment.class.getName()).commit();
     }
 
     @Override
@@ -113,44 +107,76 @@ public class NavigationDrawerActivity extends AppBaseActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-            startActivity(new Intent(this, EnterActivity.class));
-        } else if (id == R.id.nav_slideshow) {
-
+        if (id == R.id.nav_frame) {
+            switchToFrame();
+        } else if (id == R.id.nav_canvas) {
+            switchToCanvasLearnFragment();
+        } else if (id == R.id.nav_third_part) {
+            switchToThirdParty();
+        } else if (id == R.id.nav_playground) {
+            switchToPlayground();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_alipay) {
-            try {
-                Uri uri = Uri.parse("alipayqr://platformapi/startapp?saId=10000007&qrcode=https://qr.alipay.com/apn5aqr0qhfzu5y862");
-                startActivity(new Intent(Intent.ACTION_VIEW, uri));
-            } catch (Exception e) {
-                ToastUtil.showShortToast("支付宝都没安装？");
-            }
+            jumpToAlipay();
         } else if (id == R.id.nav_qq) {
-            try {
-                String url = "mqqwpa://im/chat?chat_type=wpa&uin=136351754";
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-            } catch (Exception e) {
-                ToastUtil.showShortToast("QQ都没安装？");
-            }
+            jumpToQq();
         } else if (id == R.id.nav_qq_group) {
-            try {
-//            String url="mqqwpa://im/chat?chat_type=internal&uin=284821731";
-                String url = "mqqapi://card/show_pslcard?src_type=internal&uin=284821731&card_type=group";
-//            String url="mqqwpa://im/chat?chat_type=crm&uin=284821731";//企业客服号
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-            } catch (Exception e) {
-                ToastUtil.showShortToast("QQ都没安装？");
-            }
+            jumpToQqGroup();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void jumpToQqGroup() {
+        try {
+//            String url="mqqwpa://im/chat?chat_type=internal&uin=284821731";
+            String url = "mqqapi://card/show_pslcard?src_type=internal&uin=284821731&card_type=group";
+//            String url="mqqwpa://im/chat?chat_type=crm&uin=284821731";//企业客服号
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+        } catch (Exception e) {
+            ToastUtil.showShortToast("QQ都没安装？");
+        }
+    }
+
+    private void jumpToQq() {
+        try {
+            String url = "mqqwpa://im/chat?chat_type=wpa&uin=136351754";
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+        } catch (Exception e) {
+            ToastUtil.showShortToast("QQ都没安装？");
+        }
+    }
+
+    private void jumpToAlipay() {
+        try {
+            Uri uri = Uri.parse("alipayqr://platformapi/startapp?saId=10000007&qrcode=https://qr.alipay.com/apn5aqr0qhfzu5y862");
+            startActivity(new Intent(Intent.ACTION_VIEW, uri));
+        } catch (Exception e) {
+            ToastUtil.showShortToast("支付宝都没安装？");
+        }
+    }
+
+    private void switchToPlayground() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, playGroundFragment).commit();
+    }
+
+    private void switchToFrame() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, frameListFragment).commit();
+    }
+
+    private void switchToThirdParty() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, thirdPartLearnFragment).commit();
+    }
+    private void switchToCanvasLearnFragment() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, canvasDemoListFragment).commit();
+    }
+
+    public enum Action {
+        EXIT_APP, EXIT_TO_TOP;
     }
 }

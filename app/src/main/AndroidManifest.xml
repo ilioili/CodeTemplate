@@ -17,17 +17,13 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.InjectionActivity"
+            android:name="com.taihe.template.app.ui.frame.InjectionActivity"
             android:label="注解框架DEMO"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.HttpActivity"
+            android:name="com.taihe.template.app.ui.frame.HttpActivity"
             android:label="Http请求Demo"/>
         <activity
-            android:name="com.taihe.template.app.ui.EnterActivity"
-            android:label="@string/title_activity_main_list">
-        </activity>
-        <activity
-            android:name="com.taihe.template.app.tmplate.activity.BottomTabActivity"
+            android:name="com.taihe.template.app.ui.frame.BottomTabActivity"
             android:label="@string/title_activity_main">
         </activity>
         <activity
@@ -47,7 +43,7 @@
             android:label="@string/title_activity_fullscreen"
             android:theme="@style/FullscreenTheme"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.ScrollableTabActivity"
+            android:name="com.taihe.template.app.ui.frame.ScrollableTabActivity"
             android:label="@string/title_activity_scrollable_tab"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
@@ -55,19 +51,15 @@
             android:label="@string/title_activity_file_select"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.banner.BannerActivity"
+            android:name="com.taihe.template.app.ui.frame.BannerActivity"
             android:label="@string/title_activity_banner"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.LaunchActivity"
-            android:label="@string/title_activity_launch"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
-            android:name="com.taihe.template.app.tmplate.activity.GuideActivity"
+            android:name="com.taihe.template.app.ui.frame.GuideActivity"
             android:label="@string/title_activity_guide"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.ActionBarLayoutActivity"
+            android:name="com.taihe.template.app.ui.frame.ActionBarLayoutActivity"
             android:label="滑动->固定顶部的Toobar的官方实现"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
@@ -78,31 +70,28 @@
             android:name="com.taihe.template.app.tmplate.activity.ContactListActivity"
             android:label="通讯录右侧字幕快速索引Demo"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.SlideListItemActivity"
+            android:name="com.taihe.template.app.ui.viewtest.SlideListItemActivity"
             android:label="列表滑动删除Demo"/>
-        <activity
-            android:name="com.taihe.template.app.tmplate.activity.ToolbarActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name="com.taihe.template.app.tmplate.activity.FragmentTestActivity"
             android:label="Fragment测试入口Activity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.WheelViewActivity"
+            android:name="com.taihe.template.app.ui.viewtest.WheelViewActivity"
             android:label="滑轮控件Demo"/>
         <activity
             android:name="com.taihe.template.app.tmplate.activity.FromLayoutActivity"
             android:label="效率布局Demo"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.SimpleGridLayoutActivity"
+            android:name="com.taihe.template.app.ui.viewtest.SimpleGridLayoutActivity"
             android:label="简单宫格布局Demo"/>
         <activity
-            android:name="com.taihe.template.app.canvas.CanvasActivity"
+            android:name="com.taihe.template.app.ui.canvas.CanvasActivity"
             android:label="画布实验室"/>
         <activity
-            android:name="com.taihe.template.app.canvas.MeterialCircleActivity"
+            android:name="com.taihe.template.app.ui.canvas.MeterialCircleActivity"
             android:label="MeterialDesign之圆形专场特效实现"
-            android:theme="@style/FullScreen">
+            android:theme="@style/FullScreenTranslucent">
         </activity>
         <activity
             android:name="com.taihe.template.app.ShowFinishAppActivity"

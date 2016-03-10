@@ -3,7 +3,7 @@ package com.taihe.template.app.tmplate.activity;
 import android.os.Bundle;
 
 import com.taihe.template.app.base.AppBaseActivity;
-import com.taihe.template.app.canvas.FormLineFragment;
+import com.taihe.template.app.ui.canvas.FormLineFragment;
 
 /**
  * Created by Administrator on 2016/1/25.

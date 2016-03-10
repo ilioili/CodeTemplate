@@ -5,11 +5,12 @@ import android.content.Context;
 import com.taihe.template.app.common.loading.CommonLoading;
 import com.taihe.template.app.common.loading.CommonLoadingFactory;
 import com.taihe.template.app.tmplate.activity.NavigationDrawerActivity;
+import com.taihe.template.base.BaseActivity;
 
 /**
  * Created by Administrator on 2016/1/9.
  */
-public class AppBaseActivity extends CircleTransitionActivity {
+public class AppBaseActivity extends BaseActivity {
 
     private CommonLoading commonLoading;
 

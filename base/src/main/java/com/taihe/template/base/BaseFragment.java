@@ -67,12 +67,12 @@ public class BaseFragment extends Fragment implements View.OnClickListener {
         if(null==rootView){
             rootView = InjectionUtil.loadView(inflater, container, this, false);
             rootView.setClickable(true);//防止点击事件穿透
-            initView(rootView);
+            init(rootView);
         }
         return rootView;
     }
 
-    protected void initView(View rootView){
+    protected void init(View rootView){
 
     }
 

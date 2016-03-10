@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.Region;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
@@ -78,6 +79,22 @@ public class CircleAnimationFrame extends FrameLayout implements ValueAnimator.A
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         maxRadius = (int) Math.sqrt(w * w + h * h) + 1;
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        if(valueAnimator.isRunning()){
+            return true;
+        }
+        return super.onInterceptTouchEvent(ev);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if(valueAnimator.isRunning()){
+            return true;
+        }
+        return super.onTouchEvent(event);
     }
 
     public void expand(final Gravity gravity, final int duration) {

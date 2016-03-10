@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.taihe.template.app.tmplate.activity.BottomTabActivity">
+    tools:context="com.taihe.template.app.ui.frame.BottomTabActivity">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
@@ -12,6 +12,7 @@
         tools:background="#779955" />
 
     <LinearLayout
+        android:background="#fff"
         android:id="@+id/tab_group"
         android:layout_width="match_parent"
         android:layout_height="50dp"

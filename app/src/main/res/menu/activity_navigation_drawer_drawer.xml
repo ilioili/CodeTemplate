@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group
+        android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_frame"
             android:icon="@drawable/ic_account_balance_black_24dp"
             android:title="主框架" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_third_part"
             android:icon="@drawable/ic_extension_black_24dp"
             android:title="第三方库" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_canvas"
             android:icon="@drawable/ic_insert_emoticon_black_24dp"
             android:title="画布涂鸦" />
 

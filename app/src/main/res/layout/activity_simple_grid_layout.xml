@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:background="#555"
         android:orientation="vertical"
-        tools:context="com.taihe.template.app.tmplate.activity.SimpleGridLayoutActivity">
+        tools:context="com.taihe.template.app.ui.viewtest.SimpleGridLayoutActivity">
 
 
         <!--当grid_row_height对应的值转化为px后小于1的，则行高即为给单个Item的宽度乘以此值-->
