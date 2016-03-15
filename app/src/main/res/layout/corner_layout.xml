@@ -64,7 +64,7 @@
     </LinearLayout>
 
 
-    <com.taihe.template.app.widget.CircleAnimationFrame
+    <com.github.ilioili.widget.CircleAnimationFrame
         android:id="@+id/corner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -91,7 +91,7 @@
         </LinearLayout>
 
 
-    </com.taihe.template.app.widget.CircleAnimationFrame>
+    </com.github.ilioili.widget.CircleAnimationFrame>
 
     <View
         android:layout_width="match_parent"

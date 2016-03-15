@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import com.github.ilioili.widget.CircleAnimationFrame;
 import com.ilioili.appstart.R;
 import com.taihe.template.app.base.AppBaseFragment;
-import com.taihe.template.app.widget.CircleAnimationFrame;
 import com.taihe.template.base.injection.Click;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;

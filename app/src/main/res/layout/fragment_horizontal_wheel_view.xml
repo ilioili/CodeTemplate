@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"></android.support.v7.widget.RecyclerView>
 
-    <com.taihe.template.app.widget.HorizontalWheelView
+    <com.github.ilioili.widget.HorizontalWheelView
         android:id="@+id/horizontal_wheel_view"
         android:layout_width="match_parent"
         android:layout_height="50dp">
@@ -48,9 +48,9 @@
             android:text="Wheel"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </com.taihe.template.app.widget.HorizontalWheelView>
+    </com.github.ilioili.widget.HorizontalWheelView>
 
-    <com.taihe.template.app.widget.VerticalWheelView
+    <com.github.ilioili.widget.VerticalWheelView
         android:id="@+id/vertical_wheel_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -82,5 +82,5 @@
             android:text="Button"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </com.taihe.template.app.widget.VerticalWheelView>
+    </com.github.ilioili.widget.VerticalWheelView>
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.taihe.template.app.widget;
+package com.github.ilioili.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -13,8 +13,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
-
-import com.taihe.template.base.util.LogUtil;
 
 /**
  * Created by Administrator on 2016/3/4.
@@ -185,7 +183,6 @@ public class FormLineView extends View {
         int index = (width / 2 + getScrollX() + interval / 2) / interval;
         if (index > data.length - 1) {
             index = data.length - 1;
-            LogUtil.e("Index:" + index + "");
         }
         return index;
     }

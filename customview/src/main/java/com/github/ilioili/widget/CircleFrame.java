@@ -1,4 +1,4 @@
-package com.taihe.template.app.widget;
+package com.github.ilioili.widget;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -10,8 +10,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
-
-import com.taihe.template.base.util.ToastUtil;
 
 /**
  * Created by Administrator on 2016/3/2.
@@ -39,9 +37,7 @@ public class CircleFrame extends FrameLayout implements ValueAnimator.AnimatorUp
             public void onAnimationEnd(Animator animation) {
                 if(radius==0) {
                     setVisibility(View.GONE);
-                    ToastUtil.showLongToast("I am gone");
                 }else if(radius==maxRadius){
-                    ToastUtil.showLongToast("I am done");
                 }
             }
 

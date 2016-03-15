@@ -4,9 +4,9 @@ import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
 
+import com.github.ilioili.widget.HorizontalWheelView;
+import com.github.ilioili.widget.VerticalWheelView;
 import com.ilioili.appstart.R;
-import com.taihe.template.app.widget.HorizontalWheelView;
-import com.taihe.template.app.widget.VerticalWheelView;
 import com.taihe.template.base.BaseFragment;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;

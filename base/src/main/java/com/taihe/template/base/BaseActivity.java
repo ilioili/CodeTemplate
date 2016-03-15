@@ -1,6 +1,7 @@
 package com.taihe.template.base;
 
 import android.annotation.TargetApi;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -18,6 +19,7 @@ import com.taihe.template.base.http.Task;
 import com.taihe.template.base.http.util.NetworkingUtil;
 import com.taihe.template.base.injection.InjectionUtil;
 import com.taihe.template.base.util.ExHandler;
+import com.taihe.template.base.util.LogUtil;
 import com.taihe.template.base.util.NullUtil;
 import com.taihe.template.base.util.ToastUtil;
 
@@ -46,7 +48,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     private static BaseActivity currentActivity;
     protected Handler handler = new ExHandler();
-    private boolean blockTouchEvent;
+    private boolean blockTouchEventWhenStartingActivity;
     private HashSet<Task> taskHashSet;
 
     public static BaseActivity currentActivity() {
@@ -54,10 +56,10 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     /**
-     * @param block onResume()会自动调用此方法 blockTouchEvent(true)
+     * @param block onResume()会自动调用此方法 blockTouchEventWhenStartingActivity(true)
      */
-    final protected void blockTouchEvent(boolean block) {
-        blockTouchEvent = block;
+    final protected void blockTouchEventWhenStartingActivity(boolean block) {
+        blockTouchEventWhenStartingActivity = block;
     }
 
     protected void execute(Task task) {
@@ -85,7 +87,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        if (blockTouchEvent) {
+        if (blockTouchEventWhenStartingActivity) {
             return false;
         } else {
             return super.dispatchTouchEvent(ev);
@@ -178,7 +180,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
         currentActivity = this;
-        blockTouchEvent(false);
+        blockTouchEventWhenStartingActivity(false);
     }
 
     protected void postDelay(Runnable runnable, long delay) {
@@ -276,8 +278,12 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void startActivityForResult(Intent intent, int requestCode, Bundle options) {
-        super.startActivityForResult(intent, requestCode, options);
-        blockTouchEvent(true);
+        try{
+            super.startActivityForResult(intent, requestCode, options);
+            blockTouchEventWhenStartingActivity(true);
+        }catch (ActivityNotFoundException e){
+            LogUtil.e(e);
+        }
     }
 
 }

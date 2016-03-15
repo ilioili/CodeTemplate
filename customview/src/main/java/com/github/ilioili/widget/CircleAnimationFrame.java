@@ -1,4 +1,4 @@
-package com.taihe.template.app.widget;
+package com.github.ilioili.widget;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;

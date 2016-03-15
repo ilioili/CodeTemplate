@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.taihe.template.app.widget.CircleAnimationFrame;
+import com.github.ilioili.widget.CircleAnimationFrame;
 import com.taihe.template.base.BaseActivity;
 import com.taihe.template.base.util.LogUtil;
 

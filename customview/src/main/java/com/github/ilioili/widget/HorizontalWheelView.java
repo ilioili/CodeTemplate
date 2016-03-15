@@ -1,4 +1,4 @@
-package com.taihe.template.app.widget;
+package com.github.ilioili.widget;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -20,7 +20,7 @@ import java.util.LinkedList;
 /**
  * Created by ilioili on 2015/9/23.
  */
-public class VerticalWheelView extends ViewGroup {
+public class HorizontalWheelView extends ViewGroup {
     //直接赋值初始化，不必判空
     private LinkedList<View> childViewList;
     private Adapter adapter = new Adapter() {
@@ -44,42 +44,60 @@ public class VerticalWheelView extends ViewGroup {
     };
     private int currentIndex;//中间显示的那条数据对应的索引
     private int duration = 350;
-    private OnScrollListener onScrollListener;
     private MyScroller scroller;
     private boolean isScrollerStarted = false;
     private GestureDetector gestureDetector;
+    private int itemWidth;
+    private OnScrollListener onScrollListener;
     private GestureDetector.SimpleOnGestureListener gestureListener = new GestureDetector.SimpleOnGestureListener() {
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-            scrollView((int) distanceY);
+            scrollView((int) distanceX);
             return true;
         }
 
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            int endPosition = ((int) (-velocityY)) / 500 * itemHeight;
-            int durationScale = (int) (Math.abs(velocityY) / 3000) + 1;
-            scroller.startScroll(0, getScrollY(), 0, endPosition - getScrollY(), duration * durationScale);
+            int endPosition = ((int) (-velocityX)) / 500 * itemWidth;
+            int durationScale = (int) (Math.abs(velocityX) / 3000) + 1;
+            scroller.startScroll(getScrollX(), 0, endPosition - getScrollX(), 0, duration * durationScale);
             postInvalidate();
             return true;
         }
 
         @Override
         public boolean onDown(MotionEvent e) {
+            //            System.out.println("onDown");
             scroller.forceFinished(true);
             return true;
         }
 
         @Override
         public boolean onSingleTapUp(MotionEvent e) {
-            int clickIndex = ((int) e.getY()) / itemHeight - (getChildCount() - 1) / 2 + 1 + currentIndex;
+            int clickIndex = ((int) e.getX()) / itemWidth - (getChildCount() - 1) / 2 + 1 + currentIndex;
             setCurrentIndex(clickIndex);
             return true;
         }
     };
 
-    public void setOnScrollListener(OnScrollListener onScrollListener){
-        this.onScrollListener = onScrollListener;
+    public HorizontalWheelView(Context context) {
+        this(context, null);
+    }
+
+    public HorizontalWheelView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public HorizontalWheelView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(context);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public HorizontalWheelView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        buildDrawingCache(false);
+        init(context);
     }
 
     @Override
@@ -88,23 +106,23 @@ public class VerticalWheelView extends ViewGroup {
             int size = childViewList.size();
             for (int i = 0; i < size; i++) {
                 View childAt = childViewList.get(i);
-                float percentage = Math.abs((childAt.getTop() - getScrollY() + itemHeight / 2 - getMeasuredHeight() / 2f) / (getMeasuredHeight() / 2f));
+                float percentage = Math.abs((childAt.getLeft() - getScrollX() + itemWidth / 2 - getMeasuredWidth() / 2f) / (getMeasuredWidth() / 2f));
                 onScrollListener.onScroll(childAt, i - childViewList.size()/2, percentage);
             }
         }
         super.dispatchDraw(canvas);
     }
 
-    private void scrollView(int distanceY) {
-        if (distanceY > itemHeight) {
-            scrollView(itemHeight);
-            scrollView(distanceY - itemHeight);
-        } else if (distanceY < -itemHeight) {
-            scrollView(-itemHeight);
-            scrollView(distanceY + itemHeight);
+    private void scrollView(int distanceX) {
+        if (distanceX > itemWidth) {
+            scrollView(itemWidth);
+            scrollView(distanceX - itemWidth);
+        } else if (distanceX < -itemWidth) {
+            scrollView(-itemWidth);
+            scrollView(distanceX + itemWidth);
         } else {
-            scrollBy(0, distanceY);
-            if (getScrollY() >= itemHeight) {
+            scrollBy(distanceX, 0);
+            if (getScrollX() >= itemWidth) {
                 View view = childViewList.pollFirst();
                 childViewList.addLast(view);
                 int nextIndex = currentIndex + (getChildCount() + 1) / 2;
@@ -112,14 +130,14 @@ public class VerticalWheelView extends ViewGroup {
                     nextIndex -= adapter.getDataCount();
                 }
                 adapter.setView(view, nextIndex);
-                scrollBy(0, -itemHeight);
+                scrollBy(-itemWidth, 0);
                 layoutChildrenView();
                 currentIndex++;
                 if (currentIndex >= adapter.getDataCount()) {
                     currentIndex -= adapter.getDataCount();
                 }
                 onItemSelectListener.onItemSelected(currentIndex);
-            } else if (getScrollY() <= -itemHeight) {
+            } else if (getScrollX() <= -itemWidth) {
                 View view = childViewList.pollLast();
                 childViewList.addFirst(view);
                 int preIndex = currentIndex - (getChildCount() + 1) / 2;
@@ -127,7 +145,7 @@ public class VerticalWheelView extends ViewGroup {
                     preIndex += adapter.getDataCount();
                 }
                 adapter.setView(view, preIndex);
-                scrollBy(0, itemHeight);
+                scrollBy(itemWidth, 0);
                 layoutChildrenView();
                 currentIndex--;
                 if (currentIndex < 0) {
@@ -135,27 +153,7 @@ public class VerticalWheelView extends ViewGroup {
                 }
             }
         }
-    }
 
-    private int itemHeight;
-
-    public VerticalWheelView(Context context) {
-        this(context, null);
-    }
-
-    public VerticalWheelView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
-    public VerticalWheelView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init(context);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public VerticalWheelView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init(context);
     }
 
     private void init(Context context) {
@@ -207,14 +205,14 @@ public class VerticalWheelView extends ViewGroup {
      * 慢速滑动时抬起手指后，把View滑动到合适的位置
      */
     private void scrollViewToIdlePosition() {
-        if (getScrollY() == 0) {
+        if (getScrollX() == 0) {
             return;
-        } else if (getScrollY() < itemHeight / 2 && getScrollY() > -itemHeight / 2) {
-            scroller.startScroll(0, getScrollY(), 0, -getScrollY());
-        } else if (getScrollY() > itemHeight / 2) {
-            scroller.startScroll(0, getScrollY(), 0, itemHeight - getScrollY());
+        } else if (getScrollX() < itemWidth / 2 && getScrollX() > -itemWidth / 2) {
+            scroller.startScroll(getScrollX(), 0, -getScrollX(), 0);
+        } else if (getScrollY() > itemWidth / 2) {
+            scroller.startScroll(getScrollX(), 0, itemWidth - getScrollX(), 0);
         } else {
-            scroller.startScroll(0, getScrollY(), 0, -itemHeight - getScrollY());
+            scroller.startScroll(getScrollX(), 0, -itemWidth - getScrollX(), 0);
         }
         postInvalidate();
         //        System.out.println("scrollViewToIdlePosition");
@@ -229,9 +227,9 @@ public class VerticalWheelView extends ViewGroup {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec), MeasureSpec.getSize(heightMeasureSpec));
-        itemHeight = getMeasuredHeight() / (getChildCount() - 2);
-        int childMeasureSpec = MeasureSpec.makeMeasureSpec(itemHeight, MeasureSpec.EXACTLY);
-        measureChildren(widthMeasureSpec, childMeasureSpec);
+        itemWidth = getMeasuredWidth() / (getChildCount() - 2);
+        int childMeasureSpec = MeasureSpec.makeMeasureSpec(itemWidth, MeasureSpec.EXACTLY);
+        measureChildren(childMeasureSpec, heightMeasureSpec);
     }
 
     @Override
@@ -244,7 +242,7 @@ public class VerticalWheelView extends ViewGroup {
             @Override
             public void run() {
                 int n = index - currentIndex;
-                scroller.startScroll(0, 0, 0, n * itemHeight, duration);
+                scroller.startScroll(0, 0, n * itemWidth, 0, duration);
                 postInvalidate();
             }
         });
@@ -252,10 +250,10 @@ public class VerticalWheelView extends ViewGroup {
     }
 
     private void layoutChildrenView() {
-        int top = -itemHeight;
+        int left = -itemWidth;
         for (View childView : childViewList) {
-            childView.layout(0, top, getMeasuredWidth(), top + itemHeight);
-            top += itemHeight;
+            childView.layout(left, 0, itemWidth + left, getMeasuredHeight());
+            left += itemWidth;
         }
     }
 
@@ -273,9 +271,9 @@ public class VerticalWheelView extends ViewGroup {
         if (!scroller.isFinished()) {
             scroller.computeScrollOffset();
             //            System.out.println("getDistanceX:" + scroller.getDistanceX());
-            if (0 != scroller.getDistanceY()) {
-                scrollView(scroller.getDistanceY());
-            } else if (getScrollY() == 0) {
+            if (0 != scroller.getDistanceX()) {
+                scrollView(scroller.getDistanceX());
+            } else if (getScrollX() == 0) {
                 scroller.forceFinished(true);
             }
             postInvalidate();
@@ -287,8 +285,11 @@ public class VerticalWheelView extends ViewGroup {
         }
     }
 
+    public void setOnScrollListener(OnScrollListener onScrollListener) {
+        this.onScrollListener = onScrollListener;
+    }
 
-    public static interface Adapter {
+    public interface Adapter {
         /**
          * 使用方法参照ListAdapter
          *
@@ -315,16 +316,20 @@ public class VerticalWheelView extends ViewGroup {
     }
 
     class MyScroller extends Scroller {
-        private int distanceY;
-        private int lastY = getScrollY();
+        private int distanceX;
+        private int lastX = getScrollX();
 
-        public int getDistanceY() {
-            return distanceY;
+        public MyScroller(Context context, Interpolator interpolator) {
+            super(context, interpolator);
+        }
+
+        public int getDistanceX() {
+            return distanceX;
         }
 
         @Override
         public void startScroll(int startX, int startY, int dx, int dy, int duration) {
-            lastY = startY;
+            lastX = startX;
             isScrollerStarted = true;
             super.startScroll(startX, startY, dx, dy, duration);
         }
@@ -332,13 +337,9 @@ public class VerticalWheelView extends ViewGroup {
         @Override
         public boolean computeScrollOffset() {
             boolean isScrolling = super.computeScrollOffset();
-            distanceY = getCurrY() - lastY;
-            lastY = getCurrY();
+            distanceX = getCurrX() - lastX;
+            lastX = getCurrX();
             return isScrolling;
-        }
-
-        public MyScroller(Context context, Interpolator interpolator) {
-            super(context, interpolator);
         }
 
     }
