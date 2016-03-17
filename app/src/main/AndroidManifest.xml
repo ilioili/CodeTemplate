@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.ilioili.appstart">
+<manifest package="com.ilioili.appstart"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
@@ -9,6 +9,10 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
 
     <application
         android:name="com.taihe.template.app.base.MyApp"
@@ -97,6 +101,21 @@
             android:name="com.taihe.template.app.ShowFinishAppActivity"
             android:label="@string/title_activity_show_finish_app"
             android:theme="@style/AppTheme">
+        </activity>
+        <activity
+            android:name="com.taihe.template.app.tmplate.activity.LoginActivity"
+            android:label="@string/title_activity_login">
+        </activity>
+        <activity
+            android:name="com.taihe.template.app.tmplate.activity.SettingsActivity"
+            android:label="@string/title_activity_settings">
+        </activity>
+        <activity
+            android:name="com.taihe.template.app.tmplate.activity.TabsActivity"
+            android:label="@string/title_activity_tabs"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name="com.taihe.template.app.CirclePopupActivity">
         </activity>
     </application>
 

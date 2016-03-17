@@ -75,4 +75,5 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':base')
     compile project(':customview')
+    compile 'com.android.support:support-v4:23.2.1'
 }

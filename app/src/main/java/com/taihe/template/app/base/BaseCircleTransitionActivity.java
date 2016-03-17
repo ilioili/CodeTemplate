@@ -19,7 +19,7 @@ import java.lang.reflect.Method;
 /**
  * Created by Administrator on 2016/3/3.
  */
-public class CircleTransitionActivity extends BaseActivity {
+public class BaseCircleTransitionActivity extends BaseActivity {
 
     public static final String UP_X = "startX";
     public static final String UP_Y = "startY";
@@ -58,7 +58,7 @@ public class CircleTransitionActivity extends BaseActivity {
                     try {
                         Method method = Activity.class.getDeclaredMethod("convertFromTranslucent");
                         method.setAccessible(true);
-                        method.invoke(CircleTransitionActivity.this, new Object[]{null});
+                        method.invoke(BaseCircleTransitionActivity.this, new Object[]{null});
                     } catch (Exception e) {
                         LogUtil.e(e);
                     }
@@ -100,11 +100,11 @@ public class CircleTransitionActivity extends BaseActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     Method m = Activity.class.getDeclaredMethod("convertToTranslucent", translucentConversionListenerClazz, ActivityOptions.class);
                     m.setAccessible(true);
-                    m.invoke(CircleTransitionActivity.this, new Object[]{null, null});
+                    m.invoke(BaseCircleTransitionActivity.this, new Object[]{null, null});
                 } else {
                     Method var8 = Activity.class.getDeclaredMethod("convertToTranslucent", translucentConversionListenerClazz);
                     var8.setAccessible(true);
-                    var8.invoke(CircleTransitionActivity.this, new Object[]{null});
+                    var8.invoke(BaseCircleTransitionActivity.this, new Object[]{null});
                 }
             } catch (Throwable e) {
                 LogUtil.e(e);
@@ -112,7 +112,7 @@ public class CircleTransitionActivity extends BaseActivity {
             circleAnimationFrame.collpase(getIntent().getIntExtra(UP_X, getResources().getDisplayMetrics().widthPixels / 2), getIntent().getIntExtra(UP_Y, getResources().getDisplayMetrics().heightPixels), ANIMATION_DURATION, new CircleAnimationFrame.CompleteListener() {
                 @Override
                 public void onComplete() {
-                    CircleTransitionActivity.super.finish();
+                    BaseCircleTransitionActivity.super.finish();
                 }
             });
         } else {

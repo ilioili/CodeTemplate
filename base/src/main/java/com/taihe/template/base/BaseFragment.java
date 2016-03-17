@@ -79,7 +79,7 @@ public class BaseFragment extends Fragment implements View.OnClickListener {
     @Override
     public void startActivity(Intent intent) {
         super.startActivity(intent);
-        getActivity().overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+        getActivity().overridePendingTransition(0, 0);
     }
 
     @Override

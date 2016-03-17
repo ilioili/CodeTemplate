@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ilioili.appstart.R;
+import com.taihe.template.app.MeterialListFragment;
 import com.taihe.template.app.ui.CanvasDemoListFragment;
 import com.taihe.template.app.FrameListFragment;
 import com.taihe.template.app.ui.PlayGroundFragment;
@@ -39,6 +40,7 @@ public class NavigationDrawerActivity extends AppBaseActivity
     private CanvasDemoListFragment canvasDemoListFragment = new CanvasDemoListFragment();
     private ThirdPartLearnFragment thirdPartLearnFragment = new ThirdPartLearnFragment();
     private PlayGroundFragment playGroundFragment = new PlayGroundFragment();
+    private MeterialListFragment meterialFragment = new MeterialListFragment();
 
     public static Intent newIntent(Context conext, Action action) {
         Intent it = new Intent(conext, NavigationDrawerActivity.class);
@@ -72,7 +74,7 @@ public class NavigationDrawerActivity extends AppBaseActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, frameListFragment, FrameListFragment.class.getName()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, playGroundFragment, PlayGroundFragment.class.getName()).commit();
     }
 
     @Override
@@ -112,13 +114,20 @@ public class NavigationDrawerActivity extends AppBaseActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if (id == R.id.nav_frame) {
+            toolbar.setTitle("FrameDemos");
             switchToFrame();
         } else if (id == R.id.nav_canvas) {
+            toolbar.setTitle("CanvasDemos");
             switchToCanvasLearnFragment();
         } else if (id == R.id.nav_third_part) {
+            toolbar.setTitle("ThirdPartyDemos");
             switchToThirdParty();
         } else if (id == R.id.nav_playground) {
+            toolbar.setTitle("AllDemos");
             switchToPlayground();
+        } else if (id == R.id.nav_meterial) {
+            toolbar.setTitle("AsDemos");
+            switchToMeterial();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_alipay) {
@@ -130,6 +139,10 @@ public class NavigationDrawerActivity extends AppBaseActivity
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void switchToMeterial() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, meterialFragment).commit();
     }
 
     private void jumpToQqGroup() {
