@@ -8,8 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ilioili.appstart.R;
-import com.taihe.template.app.CirclePopupActivity;
 import com.taihe.template.app.provider.ActivityLabel;
+import com.taihe.template.app.ui.canvas.CanvasActivity;
+import com.taihe.template.app.ui.canvas.MeterialCircleActivity;
 import com.taihe.template.base.BaseFragment;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.InjectionUtil;
@@ -20,7 +21,7 @@ import com.taihe.template.base.injection.Layout;
  */
 @Layout(R.layout.fragment_frame_list)
 public class CanvasDemoListFragment extends BaseFragment {
-    private Class[] activities = new Class[]{CirclePopupActivity.class};
+    private Class[] activities = new Class[]{CanvasActivity.class, MeterialCircleActivity.class};
     @Id(R.id.recyclerView)
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter = new RecyclerView.Adapter<Holder>() {

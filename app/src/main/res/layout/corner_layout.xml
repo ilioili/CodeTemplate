@@ -33,6 +33,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="expand_from_point_in_window"/>
+
+
+            <Button
+                android:id="@+id/expand_from_point_in_window_with_forground_color"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="expand_from_point_in_window"/>
         </LinearLayout>
 
         <LinearLayout
@@ -73,21 +80,28 @@
         android:visibility="gone">
 
         <LinearLayout
+            android:background="#055"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <View
+            <TextView
+                android:textColor="#fff"
+                android:textSize="40dp"
+                android:text="View1"
+                android:background="#55000000"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#f00"/>
+                android:layout_weight="1"/>
 
-            <View
+            <TextView
+                android:textColor="#fff"
+                android:textSize="40dp"
+                android:text="View2"
+                android:background="#55ffffff"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#0ff"/>
+                android:layout_weight="1"/>
         </LinearLayout>
 
 

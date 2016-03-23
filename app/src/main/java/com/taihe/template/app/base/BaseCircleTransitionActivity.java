@@ -32,48 +32,13 @@ public class BaseCircleTransitionActivity extends BaseActivity {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        if(applyCircleTransition){
+        if (applyCircleTransition) {
             if (ev.getAction() == MotionEvent.ACTION_UP) {
                 startX = (int) ev.getRawX();
                 startY = (int) ev.getRawY();
             }
         }
         return super.dispatchTouchEvent(ev);
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (applyCircleTransition) {
-            circleAnimationFrame = new CircleAnimationFrame(this);
-            ViewGroup root = (ViewGroup) getWindow().getDecorView();
-            View child = root.getChildAt(0);
-            child.setBackgroundColor(Color.WHITE);
-            root.removeView(child);
-            root.addView(circleAnimationFrame);
-            circleAnimationFrame.addView(child);
-            circleAnimationFrame.expand(getIntent().getIntExtra(UP_X, getResources().getDisplayMetrics().widthPixels / 2), getIntent().getIntExtra(UP_Y, getResources().getDisplayMetrics().heightPixels), ANIMATION_DURATION, new CircleAnimationFrame.CompleteListener() {
-                @Override
-                public void onComplete() {//把Activity变成不透明，之前的一个Activity可以被释放
-                    try {
-                        Method method = Activity.class.getDeclaredMethod("convertFromTranslucent");
-                        method.setAccessible(true);
-                        method.invoke(BaseCircleTransitionActivity.this, new Object[]{null});
-                    } catch (Exception e) {
-                        LogUtil.e(e);
-                    }
-                }
-            });
-        }
-    }
-
-    @Override
-    public void startActivity(Intent intent) {
-        if (applyCircleTransition) {
-            intent.putExtra(UP_X, startX);
-            intent.putExtra(UP_Y, startY);
-        }
-        super.startActivity(intent);
     }
 
     @Override
@@ -109,7 +74,9 @@ public class BaseCircleTransitionActivity extends BaseActivity {
             } catch (Throwable e) {
                 LogUtil.e(e);
             }
-            circleAnimationFrame.collpase(getIntent().getIntExtra(UP_X, getResources().getDisplayMetrics().widthPixels / 2), getIntent().getIntExtra(UP_Y, getResources().getDisplayMetrics().heightPixels), ANIMATION_DURATION, new CircleAnimationFrame.CompleteListener() {
+            int upX = getIntent().getIntExtra(UP_X, getResources().getDisplayMetrics().widthPixels / 2);
+            int upY = getIntent().getIntExtra(UP_Y, getResources().getDisplayMetrics().heightPixels);
+            circleAnimationFrame.collapse(true, upX, upY, ANIMATION_DURATION, false, new CircleAnimationFrame.CompleteListener() {
                 @Override
                 public void onComplete() {
                     BaseCircleTransitionActivity.super.finish();
@@ -118,5 +85,42 @@ public class BaseCircleTransitionActivity extends BaseActivity {
         } else {
             super.finish();
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (applyCircleTransition) {
+            circleAnimationFrame = new CircleAnimationFrame(this);
+            ViewGroup root = (ViewGroup) getWindow().getDecorView();
+            View child = root.getChildAt(0);
+            child.setBackgroundColor(Color.WHITE);
+            root.removeView(child);
+            root.addView(circleAnimationFrame);
+            circleAnimationFrame.addView(child);
+            int upX = getIntent().getIntExtra(UP_X, getResources().getDisplayMetrics().widthPixels / 2);
+            int upY = getIntent().getIntExtra(UP_Y, getResources().getDisplayMetrics().heightPixels);
+            circleAnimationFrame.expand(true, upX, upY, ANIMATION_DURATION, Color.TRANSPARENT, new CircleAnimationFrame.CompleteListener() {
+                @Override
+                public void onComplete() {//把Activity变成不透明，之前的一个Activity可以被释放
+                    try {
+                        Method method = Activity.class.getDeclaredMethod("convertFromTranslucent");
+                        method.setAccessible(true);
+                        method.invoke(BaseCircleTransitionActivity.this, new Object[]{null});
+                    } catch (Exception e) {
+                        LogUtil.e(e);
+                    }
+                }
+            });
+        }
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        if (applyCircleTransition) {
+            intent.putExtra(UP_X, startX);
+            intent.putExtra(UP_Y, startY);
+        }
+        super.startActivity(intent);
     }
 }

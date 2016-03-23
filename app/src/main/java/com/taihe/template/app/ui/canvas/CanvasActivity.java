@@ -24,8 +24,9 @@ public class CanvasActivity extends AppBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(viewPager);
         final List<Fragment> list = new ArrayList<>();
-        list.add(new PathFragment());
         list.add(new CornerAnimationFragment());
+        list.add(new PathFragment());
+
         list.add(new FormLineFragment());
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override

@@ -29,7 +29,7 @@ public class MeterialCircleActivity extends AppBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         randomActivityAppearance();
-        circleAnimationFrame.expand(getIntent().getIntExtra("x", 0), getIntent().getIntExtra("y", 0), 1000);
+        circleAnimationFrame.expand(true,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    getIntent().getIntExtra("x", 0), getIntent().getIntExtra("y", 0), 1000);
         textView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -71,7 +71,7 @@ public class MeterialCircleActivity extends AppBaseActivity {
         }else{
             isFinishing = true;
         }
-        circleAnimationFrame.collpase(getIntent().getIntExtra("x", 0), getIntent().getIntExtra("y", 0), 1000, new CircleAnimationFrame.CompleteListener() {
+        circleAnimationFrame.collapse(true, getIntent().getIntExtra("x", 0), getIntent().getIntExtra("y", 0), 1000, false, new CircleAnimationFrame.CompleteListener() {
             @Override
             public void onComplete() {
                 MeterialCircleActivity.super.finish();

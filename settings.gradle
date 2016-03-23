@@ -1,1 +1,1 @@
-include ':app', ':base', ':umeng', ':javalib', ':customview'
+include ':app', ':base', ':umeng', ':customview'

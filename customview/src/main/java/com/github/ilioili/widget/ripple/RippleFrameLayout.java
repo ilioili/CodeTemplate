@@ -39,9 +39,13 @@ public class RippleFrameLayout extends FrameLayout {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        rippleHelper.injectRipple(ev);
+        rippleHelper.getDownPosition(ev);
         return super.dispatchTouchEvent(ev);
     }
 
-
+    @Override
+    public void setPressed(boolean pressed) {
+        rippleHelper.onPressed(pressed);
+        super.setPressed(pressed);
+    }
 }

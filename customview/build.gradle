@@ -17,3 +17,7 @@ android {
         }
     }
 }
+dependencies {
+    compile 'org.jetbrains:annotations-java5:15.0'
+}
+

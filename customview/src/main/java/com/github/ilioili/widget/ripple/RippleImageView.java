@@ -6,28 +6,28 @@ import android.graphics.Canvas;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 
 
 /**
  * Created by Administrator on 2016/3/15.
  */
-public class RippleLinearLayout extends LinearLayout {
+public class RippleImageView extends ImageView {
     RippleHelper rippleHelper = new RippleHelper(this);
-    public RippleLinearLayout(Context context) {
+    public RippleImageView(Context context) {
         super(context);
     }
 
-    public RippleLinearLayout(Context context, AttributeSet attrs) {
+    public RippleImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public RippleLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public RippleImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public RippleLinearLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public RippleImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 

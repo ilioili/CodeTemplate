@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">模板库</string>
+    <string name="app_name">CodeLab</string>
     <string name="title_activity_main">底部Tab框架Activity</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
