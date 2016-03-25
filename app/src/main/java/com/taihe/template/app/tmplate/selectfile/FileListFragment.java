@@ -1,5 +1,6 @@
 package com.taihe.template.app.tmplate.selectfile;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
@@ -94,6 +95,12 @@ public class FileListFragment extends BaseFragment {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        recyclerView.getAdapter().notifyDataSetChanged();
+    }
+
     public File[] getFiles() {
         String dirPath = getArguments().getString(BUNDLE_KEY_PATH);
         File dir = new File(dirPath);
@@ -101,16 +108,23 @@ public class FileListFragment extends BaseFragment {
             return dir.listFiles(new FileFilter() {
                 @Override
                 public boolean accept(File f) {
-                    if(showHinden){
+                    if (showHinden) {
                         return f.isDirectory();
-                    }else{
-                        return f.getName().charAt(0)=='.' && f.isDirectory();
+                    } else {
+                        return f.getName().charAt(0) != '.' && f.isDirectory();
                     }
                 }
             });
         } else {
-
-            return dir.listFiles();
+            if (showHinden)
+                return dir.listFiles();
+            else
+                return dir.listFiles(new FileFilter() {
+                    @Override
+                    public boolean accept(File pathname) {
+                        return pathname.getName().charAt(0) != '.';
+                    }
+                });
         }
     }
 

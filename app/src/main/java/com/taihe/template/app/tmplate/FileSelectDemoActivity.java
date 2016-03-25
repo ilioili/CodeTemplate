@@ -59,4 +59,10 @@ public class FileSelectDemoActivity extends AppBaseActivity {
         Intent intent = FileSelectActivity.newIntent(this, FileSelectActivity.Action.VIEW, 1, dir, true);
         startActivityForResult(intent, REQUEST_CODE_SELECT_SINGLE_FILE);
     }
+
+    @Click(R.id.view_file_with_hidden)
+    private void viewFileWithoutHidden(View v) {
+        Intent intent = FileSelectActivity.newIntent(this, FileSelectActivity.Action.VIEW, 1, dir, false);
+        startActivityForResult(intent, REQUEST_CODE_SELECT_SINGLE_FILE);
+    }
 }
