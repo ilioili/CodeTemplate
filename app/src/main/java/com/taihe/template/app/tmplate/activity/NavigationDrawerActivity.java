@@ -148,8 +148,8 @@ public class NavigationDrawerActivity extends AppBaseActivity
     private void jumpToQqGroup() {
         try {
 //            String url="mqqwpa://im/chat?chat_type=internal&uin=284821731";
-            String url = "mqqapi://card/show_pslcard?src_type=internal&uin=284821731&card_type=group";
-//            String url="mqqwpa://im/chat?chat_type=crm&uin=284821731";//企业客服号
+            String url = "mqqapi://card/show_pslcard?src_type=internal&uin=4008260035&card_type=group";
+//            String url="mqqwpa://im/chat?chat_type=crm&uin=4008260035";//企业客服号
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
         } catch (Exception e) {
             ToastUtil.showShortToast("QQ都没安装？");

@@ -115,6 +115,8 @@
             android:label="@string/title_activity_tabs"
             android:theme="@style/AppTheme">
         </activity>
+        <activity android:name="com.taihe.template.app.tmplate.FileSelectDemoActivity">
+        </activity>
     </application>
 
 </manifest>

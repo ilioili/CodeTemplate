@@ -10,7 +10,7 @@
         <item
             android:id="@+id/nav_frame"
             android:icon="@drawable/ic_account_balance_black_24dp"
-            android:title="主框架"/>
+            android:title="组件"/>
         <item
             android:id="@+id/nav_third_part"
             android:icon="@drawable/ic_extension_black_24dp"

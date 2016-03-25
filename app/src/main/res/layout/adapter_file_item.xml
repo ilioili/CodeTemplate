@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:clickable="true"
+    android:layout_height="50dp">
+
+    <com.github.ilioili.widget.ripple.RippleTextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableLeft="@drawable/ic_folder_black_24dp"
+        android:drawablePadding="10dp"
+        android:paddingRight="50dp"
+        android:lines="1"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Download"/>
+
+    <ImageView
+        android:id="@+id/check"
+        android:clickable="true"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|center_vertical"
+        android:padding="15dp"
+        android:src="@drawable/checkbox"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_gravity="bottom"
+        android:background="#aaa"/>
+</FrameLayout>
