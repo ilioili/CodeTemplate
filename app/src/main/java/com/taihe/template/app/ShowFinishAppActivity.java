@@ -6,7 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.app.base.AppBaseActivity;
 import com.taihe.template.app.tmplate.activity.NavigationDrawerActivity;
 

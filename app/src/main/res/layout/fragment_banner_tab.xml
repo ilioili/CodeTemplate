@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.taihe.template.base.widget.HeadTabPagerWrapper
+    <com.github.ilioili.widget.HeadTabPagerWrapper
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -33,5 +33,5 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </com.taihe.template.base.widget.HeadTabPagerWrapper>
+    </com.github.ilioili.widget.HeadTabPagerWrapper>
 </android.support.v4.widget.SwipeRefreshLayout>

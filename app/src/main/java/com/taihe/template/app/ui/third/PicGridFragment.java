@@ -11,9 +11,9 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.taihe.template.app.base.AppBaseFragment;
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.base.util.TestPicUrls;
-import com.taihe.template.base.widget.FixRatioImageView;
+import com.github.ilioili.widget.FixRatioImageView;
 
 /**
  * Created by Administrator on 2016/1/9.

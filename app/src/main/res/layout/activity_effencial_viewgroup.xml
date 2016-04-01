@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<com.taihe.template.base.widget.FormLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:base_on_width="true"
-    app:w_h_ratio="1.25">
+<com.github.ilioili.widget.FormLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                      xmlns:app="http://schemas.android.com/apk/res-auto"
+                                      android:layout_width="match_parent"
+                                      android:layout_height="match_parent"
+                                      app:base_on_width="true"
+                                      app:w_h_ratio="1.25">
 
     <View
         android:layout_margin="1px"
@@ -77,4 +77,4 @@
         app:relative_top="1"
         app:relative_width="0.666666666" />
 
-</com.taihe.template.base.widget.FormLayout>
+</com.github.ilioili.widget.FormLayout>

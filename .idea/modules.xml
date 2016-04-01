@@ -5,8 +5,11 @@
       <module fileurl="file://$PROJECT_DIR$/CodeTemplate.iml" filepath="$PROJECT_DIR$/CodeTemplate.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
-      <module fileurl="file://$PROJECT_DIR$/customview/customview.iml" filepath="$PROJECT_DIR$/customview/customview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utils/customutil.iml" filepath="$PROJECT_DIR$/utils/customutil.iml" />
+      <module fileurl="file://$PROJECT_DIR$/widgets/customview.iml" filepath="$PROJECT_DIR$/widgets/customview.iml" />
       <module fileurl="file://$PROJECT_DIR$/umeng/umeng.iml" filepath="$PROJECT_DIR$/umeng/umeng.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utils/utils.iml" filepath="$PROJECT_DIR$/utils/utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/widgets/widgets.iml" filepath="$PROJECT_DIR$/widgets/widgets.iml" />
     </modules>
   </component>
 </project>

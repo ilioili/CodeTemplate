@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.taihe.template.base.widget.SimpleGridLayout
+    <com.github.ilioili.widget.SimpleGridLayout
         android:background="#055"
         android:layout_width="match_parent"
         android:layout_height="100dp">
@@ -24,6 +24,6 @@
             android:src="@drawable/ic_launcher"
             android:layout_width="0dp"
             android:layout_height="0dp" />
-    </com.taihe.template.base.widget.SimpleGridLayout>
+    </com.github.ilioili.widget.SimpleGridLayout>
 
 </LinearLayout>

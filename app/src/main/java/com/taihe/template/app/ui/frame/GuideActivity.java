@@ -10,11 +10,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.app.base.AppBaseActivity;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;
-import com.taihe.template.base.widget.Indicator;
+import com.github.ilioili.widget.Indicator;
 
 @Layout(R.layout.activity_guide)
 public class GuideActivity extends AppBaseActivity {

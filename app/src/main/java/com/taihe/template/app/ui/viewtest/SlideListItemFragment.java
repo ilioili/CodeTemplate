@@ -7,9 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.base.BaseFragment;
-import com.taihe.template.base.widget.SlideListItemWrapper;
+import com.github.ilioili.widget.SlideListItemWrapper;
 
 /**
  * Created by Administrator on 2016/1/21.

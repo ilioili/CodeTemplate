@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.app.provider.ActivityLabel;
 import com.taihe.template.app.tmplate.activity.LoginActivity;
 import com.taihe.template.app.tmplate.activity.SettingsActivity;

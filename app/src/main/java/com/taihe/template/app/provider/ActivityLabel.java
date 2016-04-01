@@ -5,7 +5,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
-import com.ilioili.appstart.BuildConfig;
+import com.taihe.template.app.BuildConfig;
 
 import java.util.HashMap;
 

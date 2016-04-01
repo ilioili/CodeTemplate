@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.taihe.template.base.widget.FixRatioFrameLayout
+    <com.github.ilioili.widget.FixRatioFrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:ratio="0.5"
@@ -16,6 +16,6 @@
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </com.taihe.template.base.widget.FixRatioFrameLayout>
+    </com.github.ilioili.widget.FixRatioFrameLayout>
 
 </LinearLayout>

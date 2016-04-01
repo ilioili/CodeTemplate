@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.app.base.AppBaseActivity;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;

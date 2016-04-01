@@ -8,7 +8,7 @@ import android.view.animation.BounceInterpolator;
 import android.view.animation.LinearInterpolator;
 
 import com.github.ilioili.widget.CircleAnimationFrame;
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.app.base.AppBaseFragment;
 import com.taihe.template.base.injection.Click;
 import com.taihe.template.base.injection.Id;

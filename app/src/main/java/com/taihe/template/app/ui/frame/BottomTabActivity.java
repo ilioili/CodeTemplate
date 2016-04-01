@@ -9,7 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.app.base.AppBaseActivity;
 import com.taihe.template.app.ui.third.PicGridFragment;
 import com.taihe.template.app.ui.third.PicListFragment;

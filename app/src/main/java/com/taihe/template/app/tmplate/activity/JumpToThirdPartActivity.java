@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.app.base.AppBaseActivity;
 import com.taihe.template.base.injection.Click;
 import com.taihe.template.base.injection.Layout;

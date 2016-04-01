@@ -2,7 +2,7 @@ package com.taihe.template.app.ui.frame;
 
 import android.os.Bundle;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.app.base.AppBaseActivity;
 import com.taihe.template.base.injection.Layout;
 

@@ -13,7 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 
 /**
  * Created by Administrator on 2016/2/25.

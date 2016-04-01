@@ -9,7 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.app.tmplate.fragment.PlaceholderFragment;
 import com.taihe.template.base.BaseFragment;
 import com.taihe.template.base.injection.Id;

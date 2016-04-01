@@ -8,11 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.app.base.AppBaseActivity;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;
-import com.taihe.template.base.widget.CharacterChooser;
+import com.github.ilioili.widget.CharacterChooser;
 
 import java.util.ArrayList;
 

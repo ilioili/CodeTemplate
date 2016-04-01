@@ -9,14 +9,14 @@
     android:orientation="vertical"
     tools:context="com.taihe.template.app.ui.frame.BannerActivity">
 
-    <com.taihe.template.base.widget.FixRatioFrameLayout
+    <com.github.ilioili.widget.FixRatioFrameLayout
         android:id="@+id/banner_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:baseOnWidth="true"
         app:ratio="0.5">
 
-    </com.taihe.template.base.widget.FixRatioFrameLayout>
+    </com.github.ilioili.widget.FixRatioFrameLayout>
 
 
 </LinearLayout>

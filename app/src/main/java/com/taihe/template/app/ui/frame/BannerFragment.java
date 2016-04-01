@@ -11,13 +11,13 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.base.BaseFragment;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;
 import com.taihe.template.base.util.ExHandler;
 import com.taihe.template.base.util.TestPicUrls;
-import com.taihe.template.base.widget.Indicator;
+import com.github.ilioili.widget.Indicator;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -93,4 +93,20 @@ public class FileUtil {
         }
         return value;
     }
+
+    /**
+     * @param file 可以是文件也可以是文件夹
+     * @return 如果是文件，则返回该文件的大小。如果是文件夹，则返回该文件夹下所有文件的大小之和
+     */
+    public static long getFileSize(File file) {
+        long size = 0;
+        if (file.isDirectory()) {
+            for (File f : file.listFiles()) {
+                size += getFileSize(f);
+            }
+        } else {
+            size += file.length();
+        }
+        return size;
+    }
 }

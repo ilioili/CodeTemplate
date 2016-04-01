@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Environment;
 import android.view.View;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.app.base.AppBaseActivity;
 import com.taihe.template.app.tmplate.selectfile.FileSelectActivity;
 import com.taihe.template.base.injection.Click;

@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.app.api.model.Student;
 import com.taihe.template.app.api.service.StudentApi;
 import com.taihe.template.app.base.AppBaseActivity;

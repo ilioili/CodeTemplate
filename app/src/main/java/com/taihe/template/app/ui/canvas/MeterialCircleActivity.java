@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.github.ilioili.widget.CircleAnimationFrame;
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.app.base.AppBaseActivity;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;

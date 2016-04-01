@@ -3,7 +3,7 @@ package com.taihe.template.app.ui.canvas;
 import android.view.View;
 
 import com.github.ilioili.widget.FormLineView;
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.app.base.AppBaseFragment;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;

@@ -6,13 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.base.BaseFragment;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;
 import com.taihe.template.base.util.ToastUtil;
-import com.taihe.template.base.widget.CircularRecyclerWheelView;
-import com.taihe.template.base.widget.RecyclerWheelView;
+import com.github.ilioili.widget.CircularRecyclerWheelView;
+import com.github.ilioili.widget.RecyclerWheelView;
 
 import java.util.ArrayList;
 

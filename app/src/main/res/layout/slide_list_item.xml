@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.taihe.template.base.widget.SlideListItemWrapper xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="70dp"
-    android:orientation="vertical">
+<com.github.ilioili.widget.SlideListItemWrapper xmlns:android="http://schemas.android.com/apk/res/android"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="70dp"
+                                                android:orientation="vertical">
 
     <TextView
         android:id="@+id/layer_up"
@@ -27,4 +27,4 @@
         android:textSize="28sp" />
 
 
-</com.taihe.template.base.widget.SlideListItemWrapper>
+</com.github.ilioili.widget.SlideListItemWrapper>

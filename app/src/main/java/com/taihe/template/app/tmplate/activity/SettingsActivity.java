@@ -21,7 +21,7 @@ import android.text.TextUtils;
 import android.view.MenuItem;
 
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 
 import java.util.List;
 

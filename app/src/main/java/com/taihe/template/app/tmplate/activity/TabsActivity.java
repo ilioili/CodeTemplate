@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 
 
 public class TabsActivity extends AppCompatActivity {

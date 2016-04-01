@@ -9,7 +9,8 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.Window;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
+
 
 /**
  * Created by Administrator on 2016/1/19.

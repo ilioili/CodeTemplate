@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.taihe.template.base.widget.Indicator
+    <com.github.ilioili.widget.Indicator
         android:id="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

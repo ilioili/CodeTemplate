@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.app.provider.ActivityLabel;
 import com.taihe.template.app.tmplate.FileSelectDemoActivity;
 import com.taihe.template.app.ui.frame.HttpActivity;
@@ -24,7 +24,7 @@ import com.taihe.template.base.injection.Layout;
  */
 @Layout(R.layout.fragment_frame_list)
 public class FrameListFragment extends BaseFragment{
-    private Class[] activities = new Class[]{BottomTabActivity.class, ScrollableTabActivity.class, InjectionActivity.class, HttpActivity.class, FileSelectDemoActivity.class};
+    private Class[] activities = new Class[]{BaseWebActivity.class, BottomTabActivity.class, ScrollableTabActivity.class, InjectionActivity.class, HttpActivity.class, FileSelectDemoActivity.class};
     @Id(R.id.recyclerView)
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter = new RecyclerView.Adapter<Holder>() {

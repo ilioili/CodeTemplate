@@ -8,7 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.taihe.template.app.base.AppBaseActivity;
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;
 

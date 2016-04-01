@@ -74,6 +74,6 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':base')
-    compile project(':customview')
+    compile project(':widgets')
     compile 'com.android.support:support-v4:23.2.1'
 }

@@ -14,7 +14,7 @@
 
 
         <!--当grid_row_height对应的值转化为px后小于1的，则行高即为给单个Item的宽度乘以此值-->
-        <com.taihe.template.base.widget.SimpleGridLayout
+        <com.github.ilioili.widget.SimpleGridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#f00"
@@ -64,10 +64,10 @@
                 android:background="#850" />
 
 
-        </com.taihe.template.base.widget.SimpleGridLayout>
+        </com.github.ilioili.widget.SimpleGridLayout>
 
         <!--当grid_row_height对应的值转化为px后等于1的或不指定该属性，则行高即为给单个Item的宽度-->
-        <com.taihe.template.base.widget.SimpleGridLayout
+        <com.github.ilioili.widget.SimpleGridLayout
             android:layout_margin="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -117,10 +117,10 @@
                 android:background="#850" />
 
 
-        </com.taihe.template.base.widget.SimpleGridLayout>
+        </com.github.ilioili.widget.SimpleGridLayout>
 
         <!--当grid_row_height对应的值转化为px后等于1的或不指定该属性，则行高即为给单个Item的宽度-->
-        <com.taihe.template.base.widget.SimpleGridLayout
+        <com.github.ilioili.widget.SimpleGridLayout
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:background="#f00"
@@ -169,10 +169,10 @@
                 android:background="#850" />
 
 
-        </com.taihe.template.base.widget.SimpleGridLayout>
+        </com.github.ilioili.widget.SimpleGridLayout>
 
         <!--当grid_row_height对应的值转化为px后大于1的，则行高即为给定的高度-->
-        <com.taihe.template.base.widget.SimpleGridLayout
+        <com.github.ilioili.widget.SimpleGridLayout
             android:layout_marginTop="20dp"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
@@ -223,7 +223,7 @@
                 android:background="#850" />
 
 
-        </com.taihe.template.base.widget.SimpleGridLayout>
+        </com.github.ilioili.widget.SimpleGridLayout>
     </LinearLayout>
 </ScrollView>
 

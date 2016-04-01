@@ -1,6 +1,6 @@
 package com.taihe.template.app.ui.viewtest;
 
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.base.BaseFragment;
 import com.taihe.template.base.injection.Layout;
 

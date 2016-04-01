@@ -5,32 +5,32 @@
     android:orientation="vertical">
 
 
-    <com.taihe.template.base.widget.RecyclerWheelView
+    <com.github.ilioili.widget.RecyclerWheelView
         android:id="@+id/recyclerView1"
         android:layout_width="match_parent"
         android:layout_height="50dp"/>
 
-    <com.taihe.template.base.widget.RecyclerWheelView
+    <com.github.ilioili.widget.RecyclerWheelView
         android:layout_width="match_parent"
         android:id="@+id/recyclerView2"
         android:layout_height="50dp"/>
 
-    <com.taihe.template.base.widget.RecyclerWheelView
+    <com.github.ilioili.widget.RecyclerWheelView
         android:layout_width="match_parent"
         android:id="@+id/recyclerView3"
         android:layout_height="50dp"/>
 
-    <com.taihe.template.base.widget.RecyclerWheelView
+    <com.github.ilioili.widget.RecyclerWheelView
         android:id="@+id/recyclerView4"
         android:layout_width="match_parent"
         android:layout_height="50dp"/>
 
-    <com.taihe.template.base.widget.CircularRecyclerWheelView
+    <com.github.ilioili.widget.CircularRecyclerWheelView
         android:layout_width="match_parent"
         android:id="@+id/horizontalCircularRecyclerView"
         android:layout_height="50dp"/>
 
-    <com.taihe.template.base.widget.CircularRecyclerWheelView
+    <com.github.ilioili.widget.CircularRecyclerWheelView
         android:layout_width="match_parent"
         android:id="@+id/verticalCircularRecyclerView"
         android:layout_height="match_parent"/>

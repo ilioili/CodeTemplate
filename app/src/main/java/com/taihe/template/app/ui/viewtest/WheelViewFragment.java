@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.github.ilioili.widget.HorizontalWheelView;
 import com.github.ilioili.widget.VerticalWheelView;
-import com.ilioili.appstart.R;
+import com.taihe.template.app.R;
 import com.taihe.template.base.BaseFragment;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;
