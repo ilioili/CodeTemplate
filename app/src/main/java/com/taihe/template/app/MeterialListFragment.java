@@ -26,7 +26,7 @@ import com.taihe.template.base.injection.Layout;
  */
 @Layout(R.layout.fragment_frame_list)
 public class MeterialListFragment extends BaseFragment{
-    private Class[] activities = new Class[]{LoginActivity.class, SettingsActivity.class, TabsActivity.class};
+    private Class[] activities = new Class[]{OfficalRippleAnimationDemo.class, LoginActivity.class, SettingsActivity.class, TabsActivity.class};
     @Id(R.id.recyclerView)
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter = new RecyclerView.Adapter<Holder>() {

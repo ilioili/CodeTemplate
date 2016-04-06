@@ -15,23 +15,23 @@
     <uses-permission android:name="android.permission.READ_PROFILE"/>
 
     <application
-        android:name="com.taihe.template.app.base.MyApp"
+        android:name=".base.MyApp"
         android:allowBackup="true"
         android:icon="@android:drawable/sym_def_app_icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.taihe.template.app.ui.frame.InjectionActivity"
+            android:name=".ui.frame.InjectionActivity"
             android:label="注解框架DEMO"/>
         <activity
-            android:name="com.taihe.template.app.ui.frame.HttpActivity"
+            android:name=".ui.frame.HttpActivity"
             android:label="Http请求Demo"/>
         <activity
-            android:name="com.taihe.template.app.ui.frame.BottomTabActivity"
+            android:name=".ui.frame.BottomTabActivity"
             android:label="@string/title_activity_main">
         </activity>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.NavigationDrawerActivity"
+            android:name=".tmplate.activity.NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar">
@@ -42,82 +42,84 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.taihe.template.app.ui.FullscreenActivity"
+            android:name=".ui.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
             android:theme="@style/FullscreenTheme"/>
         <activity
-            android:name="com.taihe.template.app.ui.frame.ScrollableTabActivity"
+            android:name=".ui.frame.ScrollableTabActivity"
             android:label="@string/title_activity_scrollable_tab"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.selectfile.FileSelectActivity"
+            android:name=".tmplate.selectfile.FileSelectActivity"
             android:label="@string/title_activity_file_select"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.ui.frame.BannerActivity"
+            android:name=".ui.frame.BannerActivity"
             android:label="@string/title_activity_banner"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.ui.frame.GuideActivity"
+            android:name=".ui.frame.GuideActivity"
             android:label="@string/title_activity_guide"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.ui.frame.ActionBarLayoutActivity"
+            android:name=".ui.frame.ActionBarLayoutActivity"
             android:label="滑动->固定顶部的Toobar的官方实现"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.mvp.MvpDemoActivity"
+            android:name=".mvp.MvpDemoActivity"
             android:label="MVP模式DEMO"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.ContactListActivity"
+            android:name=".tmplate.activity.ContactListActivity"
             android:label="通讯录右侧字幕快速索引Demo"/>
         <activity
-            android:name="com.taihe.template.app.ui.viewtest.SlideListItemActivity"
+            android:name=".ui.viewtest.SlideListItemActivity"
             android:label="列表滑动删除Demo"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.FragmentTestActivity"
+            android:name=".tmplate.activity.FragmentTestActivity"
             android:label="Fragment测试入口Activity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.ui.viewtest.WheelViewActivity"
+            android:name=".ui.viewtest.WheelViewActivity"
             android:label="滑轮控件Demo"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.FromLayoutActivity"
+            android:name=".tmplate.activity.FromLayoutActivity"
             android:label="效率布局Demo"/>
         <activity
-            android:name="com.taihe.template.app.ui.viewtest.SimpleGridLayoutActivity"
+            android:name=".ui.viewtest.SimpleGridLayoutActivity"
             android:label="简单宫格布局Demo"/>
         <activity
-            android:name="com.taihe.template.app.ui.canvas.CanvasActivity"
+            android:name=".ui.canvas.CanvasActivity"
             android:label="画布实验室"/>
         <activity
-            android:name="com.taihe.template.app.ui.canvas.MeterialCircleActivity"
+            android:name=".ui.canvas.MeterialCircleActivity"
             android:label="MeterialDesign之圆形专场特效实现"
             android:theme="@style/FullScreenTranslucent">
         </activity>
         <activity
-            android:name="com.taihe.template.app.ShowFinishAppActivity"
+            android:name=".ShowFinishAppActivity"
             android:label="@string/title_activity_show_finish_app"
             android:theme="@style/AppTheme">
         </activity>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.LoginActivity"
+            android:name=".tmplate.activity.LoginActivity"
             android:label="@string/title_activity_login">
         </activity>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.SettingsActivity"
+            android:name=".tmplate.activity.SettingsActivity"
             android:label="@string/title_activity_settings">
         </activity>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.TabsActivity"
+            android:name=".tmplate.activity.TabsActivity"
             android:label="@string/title_activity_tabs"
             android:theme="@style/AppTheme">
         </activity>
-        <activity android:name="com.taihe.template.app.tmplate.FileSelectDemoActivity">
+        <activity android:name=".tmplate.FileSelectDemoActivity">
         </activity>
         <activity android:name=".BaseWebActivity">
+        </activity>
+        <activity android:name=".OfficalRippleAnimationDemo">
         </activity>
     </application>
 
