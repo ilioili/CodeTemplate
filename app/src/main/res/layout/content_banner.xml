@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.taihe.template.app.ui.frame.BannerActivity"
+    tools:context="com.github.ilioili.demo.ui.frame.BannerActivity"
     tools:showIn="@layout/activity_banner">
 
 </RelativeLayout>

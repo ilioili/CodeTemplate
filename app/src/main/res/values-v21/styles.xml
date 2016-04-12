@@ -4,7 +4,31 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:colorPrimary">#2196F3</item>
+        <item name="android:colorPrimaryDark">#174b9f</item>
+        <item name="android:colorAccent">#22aaff</item>
+        <item name="android:moreIcon">@drawable/ic_more_vert_black_24dp</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <!-- Customize your theme here. -->
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:statusBarColor">@color/primary_dark_material_dark</item>
+        <item name="android:textColorPrimary">@color/accent_material_light</item>
+        <item name="android:textColorPrimaryInverse">@color/accent_material_dark</item>
+        <item name="colorAccent">@android:color/holo_blue_light</item>
+
+
+    </style>
+
+
+    <style name="Theme.ToolBar.ZhiHu" parent="AppTheme">
+        <item name="actionOverflowButtonStyle">@style/ActionButton.Overflow.ZhiHu</item>
+    </style>
+
+    <style name="ActionButton.Overflow.ZhiHu" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_more_vert_black_24dp</item>
     </style>
 </resources>

@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.taihe.template.app.ui.TabActivity$PlaceholderFragment">
+    tools:context="com.github.ilioili.demo.ui.TabActivity$PlaceholderFragment">
 
     <TextView
         android:id="@+id/section_label"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.taihe.template.app.tmplate.activity.LaunchActivity">
+    tools:context="com.github.ilioili.demo.tmplate.activity.LaunchActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

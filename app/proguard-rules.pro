@@ -125,11 +125,11 @@
 
 
 
-#-assumenosideeffects class android.com.unknown.com.taihe.template.app.base.util.Log {
+#-assumenosideeffects class android.com.unknown.com.github.ilioili.demo.base.util.Log {
 #　　public static *** d(...);
 #　　public static *** v(...);
 #}
-#-assumenosideeffects class android.com.unknown.com.taihe.template.app.base.util.Log {
+#-assumenosideeffects class android.com.unknown.com.github.ilioili.demo.base.util.Log {
 #　　public static *** d(...);
 #　　public static *** v(...);
 #}

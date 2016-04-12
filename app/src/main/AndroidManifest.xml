@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.taihe.template.app"
+<manifest package="com.github.ilioili.demo"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -15,24 +15,24 @@
     <uses-permission android:name="android.permission.READ_PROFILE"/>
 
     <application
-        android:name="com.taihe.template.app.base.MyApp"
+        android:name="com.github.ilioili.demo.base.MyApp"
         android:allowBackup="true"
-        android:icon="@android:drawable/sym_def_app_icon"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.taihe.template.app.ui.frame.InjectionActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:name="com.github.ilioili.demo.ui.frame.InjectionActivity"
             android:label="注解框架DEMO"/>
         <activity
-            android:name="com.taihe.template.app.ui.frame.HttpActivity"
+            android:name="com.github.ilioili.demo.ui.frame.HttpActivity"
             android:label="Http请求Demo"/>
         <activity
-            android:name="com.taihe.template.app.ui.frame.BottomTabActivity"
+            android:name="com.github.ilioili.demo.ui.frame.BottomTabActivity"
             android:label="@string/title_activity_main">
         </activity>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.NavigationDrawerActivity"
-            android:label="@string/title_activity_navigation_drawer"
+            android:name="com.github.ilioili.demo.tmplate.activity.NavigationDrawerActivity"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -42,82 +42,82 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.taihe.template.app.ui.FullscreenActivity"
+            android:name="com.github.ilioili.demo.ui.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
             android:theme="@style/FullscreenTheme"/>
         <activity
-            android:name="com.taihe.template.app.ui.frame.ScrollableTabActivity"
+            android:name="com.github.ilioili.demo.ui.frame.ScrollableTabActivity"
             android:label="@string/title_activity_scrollable_tab"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.selectfile.FileSelectActivity"
+            android:name="com.github.ilioili.demo.tmplate.selectfile.FileSelectActivity"
             android:label="@string/title_activity_file_select"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.ui.frame.BannerActivity"
+            android:name="com.github.ilioili.demo.ui.frame.BannerActivity"
             android:label="@string/title_activity_banner"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.ui.frame.GuideActivity"
+            android:name="com.github.ilioili.demo.ui.frame.GuideActivity"
             android:label="@string/title_activity_guide"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.ui.frame.ActionBarLayoutActivity"
+            android:name="com.github.ilioili.demo.ui.frame.ActionBarLayoutActivity"
             android:label="滑动->固定顶部的Toobar的官方实现"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.mvp.MvpDemoActivity"
+            android:name="com.github.ilioili.demo.mvp.MvpDemoActivity"
             android:label="MVP模式DEMO"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.ContactListActivity"
+            android:name="com.github.ilioili.demo.tmplate.activity.ContactListActivity"
             android:label="通讯录右侧字幕快速索引Demo"/>
         <activity
-            android:name="com.taihe.template.app.ui.viewtest.SlideListItemActivity"
+            android:name="com.github.ilioili.demo.ui.viewtest.SlideListItemActivity"
             android:label="列表滑动删除Demo"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.FragmentTestActivity"
+            android:name="com.github.ilioili.demo.tmplate.activity.FragmentTestActivity"
             android:label="Fragment测试入口Activity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.taihe.template.app.ui.viewtest.WheelViewActivity"
+            android:name="com.github.ilioili.demo.ui.viewtest.WheelViewActivity"
             android:label="滑轮控件Demo"/>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.FromLayoutActivity"
+            android:name="com.github.ilioili.demo.tmplate.activity.FromLayoutActivity"
             android:label="效率布局Demo"/>
         <activity
-            android:name="com.taihe.template.app.ui.viewtest.SimpleGridLayoutActivity"
+            android:name="com.github.ilioili.demo.ui.viewtest.SimpleGridLayoutActivity"
             android:label="简单宫格布局Demo"/>
         <activity
-            android:name="com.taihe.template.app.ui.canvas.CanvasActivity"
+            android:name="com.github.ilioili.demo.ui.canvas.CanvasActivity"
             android:label="画布实验室"/>
         <activity
-            android:name="com.taihe.template.app.ui.canvas.MeterialCircleActivity"
+            android:name="com.github.ilioili.demo.ui.canvas.MeterialCircleActivity"
             android:label="MeterialDesign之圆形专场特效实现"
             android:theme="@style/FullScreenTranslucent">
         </activity>
         <activity
-            android:name="com.taihe.template.app.ShowFinishAppActivity"
+            android:name="com.github.ilioili.demo.ShowFinishAppActivity"
             android:label="@string/title_activity_show_finish_app"
             android:theme="@style/AppTheme">
         </activity>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.LoginActivity"
+            android:name="com.github.ilioili.demo.tmplate.activity.LoginActivity"
             android:label="@string/title_activity_login">
         </activity>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.SettingsActivity"
+            android:name="com.github.ilioili.demo.tmplate.activity.SettingsActivity"
             android:label="@string/title_activity_settings">
         </activity>
         <activity
-            android:name="com.taihe.template.app.tmplate.activity.TabsActivity"
+            android:name="com.github.ilioili.demo.tmplate.activity.TabsActivity"
             android:label="@string/title_activity_tabs"
             android:theme="@style/AppTheme">
         </activity>
-        <activity android:name="com.taihe.template.app.tmplate.FileSelectDemoActivity">
+        <activity android:name="com.github.ilioili.demo.tmplate.FileSelectDemoActivity">
         </activity>
-        <activity android:name=".BaseWebActivity">
+        <activity android:name="com.github.ilioili.demo.BaseWebActivity">
         </activity>
     </application>
 
