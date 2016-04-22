@@ -1,6 +1,5 @@
 package com.github.ilioili.demo.main;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,11 +12,12 @@ import com.github.ilioili.demo.main.canvas.MeterialCircleActivity;
 import com.github.ilioili.demo.main.widget.FormLayoutActivity;
 import com.github.ilioili.demo.main.widget.SimpleGridLayoutActivity;
 import com.github.ilioili.demo.main.widget.SlideListItemActivity;
-import com.github.ilioili.demo.provider.ActivityLabel;
+import com.github.ilioili.demo.main.widget.JdGoodsDetailDemoActivity;
 import com.github.ilioili.widget.CircleAnimationFrame;
 import com.github.ilioili.widget.FormLayout;
 import com.github.ilioili.widget.SimpleGridLayout;
 import com.github.ilioili.widget.SlideListItemWrapper;
+import com.github.ilioili.widget.UpDownPageNestedScrollView;
 import com.taihe.template.base.BaseFragment;
 import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.InjectionUtil;
@@ -108,5 +108,7 @@ public class CustomerWidgetListFragment extends BaseFragment implements View.OnC
         dataList.add(dataItem3);
         DataItem dataItem4 = new DataItem(FormLayoutActivity.class, FormLayout.class, FormLayoutActivity.newIntent(getContext()), "相对比例绝对宫格布局");
         dataList.add(dataItem4);
+        DataItem dataItem5 = new DataItem(JdGoodsDetailDemoActivity.class, UpDownPageNestedScrollView.class, JdGoodsDetailDemoActivity.newIntent(getContext()), "仿京东商品详情页面上下滑动翻页");
+        dataList.add(dataItem5);
     }
 }

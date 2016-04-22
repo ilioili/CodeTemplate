@@ -1,9 +1,12 @@
 package com.github.ilioili.demo.main.widget;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.github.ilioili.demo.R;
 import com.github.ilioili.demo.base.AppBaseActivity;
@@ -14,7 +17,7 @@ import com.taihe.template.base.injection.Id;
 import com.taihe.template.base.injection.Layout;
 
 @Layout(R.layout.activity_taobao_item_detail_nested_scroll_view_demo)
-public class TaobaoItemDetailNestedScrollViewDemoActivity extends AppBaseActivity {
+public class JdGoodsDetailDemoActivity extends AppBaseActivity {
 
     @Id(R.id.swipeRefreshLayout)
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -30,6 +33,12 @@ public class TaobaoItemDetailNestedScrollViewDemoActivity extends AppBaseActivit
         super.onCreate(savedInstanceState);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         jdNestedScrollView.setOnPageSelectedListener(new UpDownPageNestedScrollView.OnPageSelectedListener() {
             @Override
             public void onScrollToFirstPage() {
@@ -56,5 +65,9 @@ public class TaobaoItemDetailNestedScrollViewDemoActivity extends AppBaseActivit
         fragmentTransaction.add(R.id.container_up, PlaceholderListFragment.newInstance(10, false));
         fragmentTransaction.add(R.id.container_down, new ScrollableTabFragment());
         fragmentTransaction.commit();
+    }
+
+    public static Intent newIntent(Context context) {
+        return new Intent(context, JdGoodsDetailDemoActivity.class);
     }
 }

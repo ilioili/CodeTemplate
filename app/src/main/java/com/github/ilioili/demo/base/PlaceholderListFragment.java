@@ -24,7 +24,7 @@ public class PlaceholderListFragment extends Fragment {
      * fragment.
      */
     private static final String BUNDLE_ITEM_COUNT = "section_number";
-    private static final String BUNDLE_WITH_SWIPE_REFRESH_LAYOUT = "section_number";
+    private static final String BUNDLE_WITH_SWIPE_REFRESH_LAYOUT = "swipe";
 
 
     /**
@@ -45,10 +45,11 @@ public class PlaceholderListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final RecyclerView recyclerView = new RecyclerView(getContext());
+        final int count = getArguments().getInt(BUNDLE_ITEM_COUNT, 20);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new RecyclerView.Adapter() {
             Random random = new Random();
-            int count = getArguments().getInt(BUNDLE_ITEM_COUNT, 20);
+
 
             @Override
             public Holder onCreateViewHolder(ViewGroup parent, int viewType) {

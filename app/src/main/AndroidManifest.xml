@@ -112,7 +112,7 @@
             android:name=".androidapitest.Main2Activity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme" />
-        <activity android:name=".main.widget.TaobaoItemDetailNestedScrollViewDemoActivity"></activity>
+        <activity android:name=".main.widget.JdGoodsDetailDemoActivity"></activity>
     </application>
 
 </manifest>
