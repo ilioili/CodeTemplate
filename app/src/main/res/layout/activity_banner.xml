@@ -7,7 +7,7 @@
     android:background="#038"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context="com.github.ilioili.demo.ui.frame.BannerActivity">
+    tools:context=".main.frame.BannerActivity">
 
     <com.github.ilioili.widget.FixRatioFrameLayout
         android:id="@+id/banner_container"

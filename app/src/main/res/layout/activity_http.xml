@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.github.ilioili.demo.ui.frame.HttpActivity">
+    tools:context=".main.frame.http.HttpActivity">
 
     <Button
         android:id="@+id/bt_req_json_obj"

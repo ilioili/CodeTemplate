@@ -1,124 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.github.ilioili.demo"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.github.ilioili.demo">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
 
     <application
-        android:name="com.github.ilioili.demo.base.MyApp"
+        android:name=".base.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:theme="@style/Theme.AppCompat"
-            android:name="com.github.ilioili.demo.ui.frame.InjectionActivity"
-            android:label="注解框架DEMO"/>
+            android:name=".main.frame.InjectionActivity"
+            android:label="注解框架DEMO"
+            android:parentActivityName=".main.apidemo.ContactListActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name="com.github.ilioili.demo.ui.frame.HttpActivity"
-            android:label="Http请求Demo"/>
+            android:name=".main.frame.http.HttpActivity"
+            android:label="Http请求Demo" />
         <activity
-            android:name="com.github.ilioili.demo.ui.frame.BottomTabActivity"
-            android:label="@string/title_activity_main">
-        </activity>
+            android:name=".main.frame.BottomTabActivity"
+            android:label="@string/title_activity_main" />
         <activity
-            android:name="com.github.ilioili.demo.tmplate.activity.NavigationDrawerActivity"
+            android:name=".main.NavigationDrawerActivity"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.github.ilioili.demo.ui.FullscreenActivity"
+            android:name=".main.apidemo.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme"/>
+            android:theme="@style/FullscreenTheme" />
         <activity
-            android:name="com.github.ilioili.demo.ui.frame.ScrollableTabActivity"
+            android:name=".main.frame.ScrollableTabActivity"
             android:label="@string/title_activity_scrollable_tab"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.github.ilioili.demo.tmplate.selectfile.FileSelectActivity"
+            android:name=".main.frame.selectfile.FileSelectActivity"
             android:label="@string/title_activity_file_select"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.github.ilioili.demo.ui.frame.BannerActivity"
+            android:name=".main.frame.BannerActivity"
             android:label="@string/title_activity_banner"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.github.ilioili.demo.ui.frame.GuideActivity"
+            android:name=".main.frame.GuideActivity"
             android:label="@string/title_activity_guide"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.github.ilioili.demo.ui.frame.ActionBarLayoutActivity"
+            android:name=".main.frame.ActionBarLayoutActivity"
             android:label="滑动->固定顶部的Toobar的官方实现"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.github.ilioili.demo.mvp.MvpDemoActivity"
+            android:name=".main.frame.mvp.MvpDemoActivity"
             android:label="MVP模式DEMO"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.github.ilioili.demo.tmplate.activity.ContactListActivity"
-            android:label="通讯录右侧字幕快速索引Demo"/>
+            android:name=".main.apidemo.ContactListActivity"
+            android:label="通讯录右侧字幕快速索引Demo" />
         <activity
-            android:name="com.github.ilioili.demo.ui.viewtest.SlideListItemActivity"
-            android:label="列表滑动删除Demo"/>
+            android:name=".main.widget.SlideListItemActivity"
+            android:label="列表滑动删除Demo" />
         <activity
-            android:name="com.github.ilioili.demo.tmplate.activity.FragmentTestActivity"
-            android:label="Fragment测试入口Activity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:name=".main.widget.WheelViewActivity"
+            android:label="滑轮控件Demo" />
         <activity
-            android:name="com.github.ilioili.demo.ui.viewtest.WheelViewActivity"
-            android:label="滑轮控件Demo"/>
+            android:name=".main.widget.FormLayoutActivity"
+            android:label="效率布局Demo" />
         <activity
-            android:name="com.github.ilioili.demo.tmplate.activity.FromLayoutActivity"
-            android:label="效率布局Demo"/>
+            android:name=".main.widget.SimpleGridLayoutActivity"
+            android:label="简单宫格布局Demo" />
         <activity
-            android:name="com.github.ilioili.demo.ui.viewtest.SimpleGridLayoutActivity"
-            android:label="简单宫格布局Demo"/>
+            android:name=".main.canvas.CanvasActivity"
+            android:label="画布实验室" />
         <activity
-            android:name="com.github.ilioili.demo.ui.canvas.CanvasActivity"
-            android:label="画布实验室"/>
-        <activity
-            android:name="com.github.ilioili.demo.ui.canvas.MeterialCircleActivity"
+            android:name=".main.canvas.MeterialCircleActivity"
             android:label="MeterialDesign之圆形专场特效实现"
-            android:theme="@style/FullScreenTranslucent">
-        </activity>
+            android:theme="@style/FullScreenTranslucent" />
         <activity
-            android:name="com.github.ilioili.demo.ShowFinishAppActivity"
+            android:name=".ShowFinishAppActivity"
             android:label="@string/title_activity_show_finish_app"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:theme="@style/AppTheme" />
         <activity
-            android:name="com.github.ilioili.demo.tmplate.activity.LoginActivity"
-            android:label="@string/title_activity_login">
-        </activity>
+            android:name=".main.google.LoginActivity"
+            android:label="@string/title_activity_login" />
         <activity
-            android:name="com.github.ilioili.demo.tmplate.activity.SettingsActivity"
-            android:label="@string/title_activity_settings">
-        </activity>
+            android:name=".main.google.SettingsActivity"
+            android:label="@string/title_activity_settings" />
         <activity
-            android:name="com.github.ilioili.demo.tmplate.activity.TabsActivity"
+            android:name=".main.google.TabsActivity"
             android:label="@string/title_activity_tabs"
-            android:theme="@style/AppTheme">
-        </activity>
-        <activity android:name="com.github.ilioili.demo.tmplate.FileSelectDemoActivity">
-        </activity>
-        <activity android:name="com.github.ilioili.demo.BaseWebActivity">
-        </activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".main.frame.selectfile.FileSelectDemoActivity" />
+        <activity android:name=".BaseWebActivity" />
+        <activity
+            android:name=".androidapitest.Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".main.widget.TaobaoItemDetailNestedScrollViewDemoActivity"></activity>
     </application>
 
 </manifest>

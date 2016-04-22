@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.github.ilioili.widget.HeadTabPagerWrapper
+    <com.github.ilioili.widget.StickyTabNestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -33,5 +33,5 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </com.github.ilioili.widget.HeadTabPagerWrapper>
+    </com.github.ilioili.widget.StickyTabNestedScrollView>
 </android.support.v4.widget.SwipeRefreshLayout>

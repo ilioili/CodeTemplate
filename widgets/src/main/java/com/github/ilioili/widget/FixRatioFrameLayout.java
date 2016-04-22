@@ -6,9 +6,10 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
 
-
 /**
- * Created by Administrator on 2015/12/14.
+ * Created by Administrator on 2015/12/14.<P>
+ * app:baseOnWidth="true"<P>
+ * app:ratio="0.5"<P>
  */
 public class FixRatioFrameLayout extends FrameLayout {
 
@@ -35,11 +36,11 @@ public class FixRatioFrameLayout extends FrameLayout {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int width = MeasureSpec.getSize(widthMeasureSpec);
         int height = MeasureSpec.getSize(heightMeasureSpec);
-        if(baseOnWith){
-            height = (int) (width*ratio);
+        if (baseOnWith) {
+            height = (int) (width * ratio);
             heightMeasureSpec = MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY);
-        }else{
-            width = (int) (height*ratio);
+        } else {
+            width = (int) (height * ratio);
             widthMeasureSpec = MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);

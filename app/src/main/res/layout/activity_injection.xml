@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layoutAnimation="@anim/layout_random"
-    tools:context="com.github.ilioili.demo.ui.frame.InjectionActivity">
+    tools:context=".main.frame.InjectionActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

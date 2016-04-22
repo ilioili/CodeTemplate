@@ -1,6 +1,6 @@
 package com.github.ilioili.demo.base;
 
-import com.github.ilioili.demo.common.UserConfig;
+import com.github.ilioili.demo.common.config.UserConfig;
 import com.taihe.template.base.BaseApplication;
 import com.taihe.template.base.util.FileUtil;
 import com.taihe.template.base.util.ToastUtil;

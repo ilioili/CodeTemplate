@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.github.ilioili.demo.common.loading.CommonLoading;
 import com.github.ilioili.demo.common.loading.CommonLoadingFactory;
-import com.github.ilioili.demo.tmplate.activity.NavigationDrawerActivity;
+import com.github.ilioili.demo.main.NavigationDrawerActivity;
 import com.taihe.template.base.BaseActivity;
 
 /**

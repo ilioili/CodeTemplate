@@ -6,9 +6,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.github.ilioili.demo.R;
 import com.github.ilioili.demo.base.AppBaseActivity;
-import com.github.ilioili.demo.tmplate.activity.NavigationDrawerActivity;
+import com.github.ilioili.demo.main.NavigationDrawerActivity;
 
 public class ShowFinishAppActivity extends AppBaseActivity {
 

@@ -101,5 +101,6 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="title_activity_tabs">TabsActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
 
 </resources>

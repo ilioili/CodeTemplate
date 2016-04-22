@@ -80,11 +80,13 @@ public class SlideListItemWrapper extends FrameLayout {
                     int interval = scrollX < getChildAt(1).getMeasuredWidth() / 2 ? -scrollX : getChildAt(1).getMeasuredWidth() - scrollX;
                     scroller.startScroll(scrollX, 0, interval, 0, DURATION);
                     postInvalidate();
+                    postInvalidateDelayed(50);//保证View的正确绘制
                 }
             } else if (event.getAction() == MotionEvent.ACTION_CANCEL) {
                 if (scrollX != 0) {
                     scroller.startScroll(scrollX, 0, -scrollX, 0, DURATION);
                     postInvalidate();
+                    postInvalidateDelayed(50);//保证View的正确绘制
                 }
             }
         }

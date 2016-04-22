@@ -15,7 +15,7 @@ import com.taihe.template.base.util.NullUtil;
 import java.util.HashSet;
 import java.util.List;
 
-public class BaseFragment extends Fragment implements View.OnClickListener {
+public class BaseFragment extends Fragment {
 
     protected View rootView;
     private HashSet<Task> taskHashSet;
@@ -39,28 +39,6 @@ public class BaseFragment extends Fragment implements View.OnClickListener {
         return (T) getActivity().findViewById(id);
     }
 
-    @Override
-    public void onClick(View v) {
-        List<Fragment> fragmentList = getChildFragmentManager().getFragments();
-        if (!NullUtil.ept(fragmentList)) {
-            for (Fragment fragment : fragmentList) {
-                if (fragment instanceof View.OnClickListener && fragment.isResumed() && fragment.getUserVisibleHint()) {
-                    View rootView = fragment.getView();
-                    View tmp = v;
-                    while (true) {//判断v是Fragment的View时候调用Fragment的onClick方法
-                        if (tmp == rootView) {
-                            ((View.OnClickListener) fragment).onClick(v);
-                            break;
-                        } else if (null == tmp.getParent() || !(tmp.getParent() instanceof View)) {
-                            break;
-                        } else {
-                            tmp = (View) tmp.getParent();
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

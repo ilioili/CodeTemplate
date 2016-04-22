@@ -5,7 +5,7 @@
                                                 android:orientation="vertical">
 
     <TextView
-        android:id="@+id/layer_up"
+        android:id="@+id/content"
         android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,7 +16,7 @@
         android:textSize="28sp" />
 
     <TextView
-        android:id="@+id/layer_down"
+        android:id="@+id/menu"
         android:clickable="true"
         android:layout_width="100dp"
         android:layout_height="match_parent"

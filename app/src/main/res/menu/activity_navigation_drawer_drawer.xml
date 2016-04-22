@@ -6,23 +6,28 @@
         <item
             android:id="@+id/nav_playground"
             android:icon="@drawable/ic_android_black_24dp"
-            android:title="练兵场"/>
+            android:title="Activitys"/>
         <item
             android:id="@+id/nav_frame"
             android:icon="@drawable/ic_account_balance_black_24dp"
-            android:title="组件"/>
+            android:title="TypicalFrame"/>
         <item
             android:id="@+id/nav_third_part"
             android:icon="@drawable/ic_extension_black_24dp"
-            android:title="第三方库"/>
+            android:title="ThirdPartyLib"/>
+
+        <item
+            android:id="@+id/nav_meterial_design"
+            android:icon="@drawable/ic_extension_black_24dp"
+            android:title="MeterialDesign"/>
         <item
             android:id="@+id/nav_canvas"
             android:icon="@drawable/ic_insert_emoticon_black_24dp"
-            android:title="画布涂鸦"/>
+            android:title="CustomerWidget" />
         <item
-            android:id="@+id/nav_meterial"
+            android:id="@+id/nav_api_learn"
             android:icon="@drawable/ic_card_giftcard_black_24dp"
-            android:title="AS模板"/>
+            android:title="AndroidApis" />
     </group>
 
     <item android:title="共建和谐社会">
