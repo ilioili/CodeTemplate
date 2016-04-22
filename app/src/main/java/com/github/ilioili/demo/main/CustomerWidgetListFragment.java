@@ -13,8 +13,10 @@ import com.github.ilioili.demo.main.widget.FormLayoutActivity;
 import com.github.ilioili.demo.main.widget.SimpleGridLayoutActivity;
 import com.github.ilioili.demo.main.widget.SlideListItemActivity;
 import com.github.ilioili.demo.main.widget.JdGoodsDetailDemoActivity;
+import com.github.ilioili.demo.main.widget.WheelViewActivity;
 import com.github.ilioili.widget.CircleAnimationFrame;
 import com.github.ilioili.widget.FormLayout;
+import com.github.ilioili.widget.RecyclerWheelView;
 import com.github.ilioili.widget.SimpleGridLayout;
 import com.github.ilioili.widget.SlideListItemWrapper;
 import com.github.ilioili.widget.UpDownPageNestedScrollView;
@@ -110,5 +112,7 @@ public class CustomerWidgetListFragment extends BaseFragment implements View.OnC
         dataList.add(dataItem4);
         DataItem dataItem5 = new DataItem(JdGoodsDetailDemoActivity.class, UpDownPageNestedScrollView.class, JdGoodsDetailDemoActivity.newIntent(getContext()), "仿京东商品详情页面上下滑动翻页");
         dataList.add(dataItem5);
+        DataItem dataItem6 = new DataItem(WheelViewActivity.class, RecyclerWheelView.class, WheelViewActivity.newIntent(getContext()), "基于RecyclerView视线滑轮效果");
+        dataList.add(dataItem6);
     }
 }
